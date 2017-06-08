@@ -29,7 +29,7 @@
   $sidebarMenu                        ="Menu";
 
   //footer.php
-  $footerText                         ="";
+  $footerText                         ="Created by Jonathan Huang 2017";
 
   //user.php
   $userTitle                          ="User administration";
@@ -38,7 +38,11 @@
   $userTableAction                    ="Action";
 
   //user_form.php
-  $formUsername="Username";
+  $formUsername                       ="Username";
+  $formPassword                       ="Password";
+  $formNewPassword                    ="New Password";
+  $formRePassword                     ="Repeat Password";
+  $formLastLogin                      ="Last logged in";
 
   //general strings
   $textAdd                            ="Add";
@@ -53,7 +57,17 @@
   $textClass                          ="Class";
   $textLecturer                       ="Lecturer";
   $textUser                           ="User";
+  $textCancel                         ="Cancel";
+  $textSubmit                         ="Submit";
+  $textReset                          ="Reset";
   //messages
   $msgDel                             ="Deleted item cannot be recovered.\n
                                         Proceed deletion ?";
+  $msgPassNotMatch                    ="Password does not match!";
+  $msgPassInv                         ="Invalid Password!";
+  $msgInsFail                         ="Addition failed!";
+  $msgInsSucceed                      ="Added succesfully!";
+  $msgUpdFail                         ="Update failed!";
+  $msgUpdSucceed                      ="Updated succesfully!";
+
 ?>

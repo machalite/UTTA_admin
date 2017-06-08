@@ -26,6 +26,8 @@
 	<!-- END OF META TAG -->
 
 	<!-- CSS -->
+  <!-- Snackbar -->
+	<link href="css/snackbar.css" rel="stylesheet">
 	<!-- Bootstrap -->
 	<link href="css/bootstrap.css" rel="stylesheet">
 	<!-- Font Awesome -->
@@ -136,9 +138,12 @@
 
                 <!-- dropdown menu content -->
 								<ul class="dropdown-menu dropdown-usermenu pull-right">
-									<li><a href="help.php"><?php echo $headerHelp?></a></li>
-									<li><a href="logout.php"><i class="fa fa-sign-out pull-right">
-                  </i><?php echo $headerLogout?></a></li>
+									<li><a href="help.php">
+                    <i class="fa fa-question-circle pull-right"></i>
+                    <?php echo $headerHelp?></a></li>
+									<li><a href="logout.php">
+                    <i class="fa fa-sign-out pull-right"></i>
+                    <?php echo $headerLogout?></a></li>
 								</ul>
 							</li>
 						</ul>

@@ -3,7 +3,7 @@
 
 	//fetch strings to display
 	include_once ("strings.php");
-	//open db connection
+	//fetch connection settings
 	include("connection.php");
 	$sql=mysqli_query($con,"SELECT id,username,lastlogin FROM user ORDER BY id");
   while($data=mysqli_fetch_array($sql,MYSQLI_ASSOC))

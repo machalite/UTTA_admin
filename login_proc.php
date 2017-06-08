@@ -1,6 +1,6 @@
 <?php
 	session_start();
-  //fetch connection variable
+  //fetch connection settings
 	include_once("connection.php");
   //fetch strings to display
   include_once("strings.php");

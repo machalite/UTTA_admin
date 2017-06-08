@@ -1,4 +1,4 @@
-<!-- displays footer and js content  -->
+<!-- displays footer and loads javascript  -->
 
 <!-- FOOTER CONTENT -->
 	<footer>
@@ -8,6 +8,8 @@
 		<!-- JS -->
 		<!-- jQuery -->
 		  <script src="js/jquery.min.js"></script>
+			<!-- Snackbar -->
+		  <script src="js/snackbar.js"></script>
 		  <!-- Bootstrap -->
 		  <script src="js/bootstrap.min.js"></script>
 		  <!-- FastClick -->
