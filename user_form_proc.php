@@ -6,7 +6,7 @@
 	$username = mysqli_real_escape_string($con, $_POST['username']);
 	$id = mysqli_real_escape_string($con, $_POST['id']);
 
-	//encrypt submitted password using MD5
+	//encrypt submitted passwords using MD5
 	$password =md5(mysqli_real_escape_string($con,$_POST['pass']));
   $reppassword =md5(mysqli_real_escape_string($con,$_POST['repass']));
 
@@ -16,14 +16,8 @@
     //Check if password repetition match
     if($password!=$reppassword)
     {
-      //displays message and redirect to form
-			?>
-			<script>
-				alert("<?php echo $msgPassNotMatch;?>");
-				// window.location.href = "user_form.php";
-			</script>
-			<?php
-			include("user_form.php");
+      echo "<center>".$msgPassNotMatch."</center><br>";
+			echo "<meta http-equiv='refresh' content='1; url=user_form.php'>";
     }
     else
     {
@@ -33,9 +27,15 @@
 
       if(!mysqli_query($con, $sql))
 			{
-				//display fail message and sql error
+				//displays fail message and sql error
         echo $msgInsFail. mysqli_error($con);
       }
+			else
+			{
+				//displays success message
+				echo "<center>".$msgInsSucceed."</center><br>";
+			}
+			echo "<meta http-equiv='refresh' content='1; url=user.php'>";
     }
   }
   //update member if there is an ID
@@ -49,39 +49,35 @@
 		//Check if submitted password match with previous password
     if($password!=$oldpassword)
     {
-			//Check if new password repetition match
-			if($newpassword!=$reppassword)
-			{
-				//displays message and redirect to form
-				?>
-				<script>
-					alert("<?php echo $msgPassNotMatch;?>");
-					window.location.href = "user_form.php";
-				</script>
-				<?php
-			}
-      //displays message and redirect to form
-			?>
-			<script>
-				alert("<?php echo $msgPassInv;?>");
-				window.location.href = "user_form.php";
-			</script>
-			<?php
+			echo "<center>".$msgPassInv."</center><br>";
+			echo "<meta http-equiv='refresh'content='1; url=user.php";
     }
-
-    //attempt insert query execution
-    $sql = "UPDATE user SET username='$username', password='$newpassword'
-			WHERE id=$id";
-
-			if(!mysqli_query($con, $sql))
-			{
-				//display fail message and sql error
-				echo $msgUpdFail. mysqli_error($con);
-			}
+		//Check if new password repetition match
+		elseif ($newpassword!=$reppassword)
+		{
+			echo "<center>".$msgPassNotMatch."</center><br>";
+			echo "<meta http-equiv='refresh'content='1; url=user.php";
+		}
+		//submitted password match with old password
+		//and password repetition matches
+		else
+		{
+			//attempt update query execution
+			$sql = "UPDATE user SET username='$username', password='$newpassword'
+				WHERE id=$id";
+				if(!mysqli_query($con, $sql))
+				{
+					//display fail message and sql error
+					echo $msgUpdFail. mysqli_error($con);
+				}
+				else
+				{
+					echo "<center>".$msgUpdSucceed."</center><br>";
+					//redirect page
+				  echo "<meta http-equiv='refresh' content='1; url=user.php'>";
+				}
+		}
   }
-  //close connection
+  //close db connection
   mysqli_close($con);
-
-  //redirect page
-  echo "<meta http-equiv='refresh' content='1; url=user.php'>";
-  ?>
+?>

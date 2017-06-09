@@ -14,7 +14,7 @@
 	$con=mysqli_connect($host,$user,$pass,$db);
 
 	// Check connection
-	if (mysqli_connect_errno())
+	if (mysqli_connect_errno())																										
 	{
 		// if connection error, display this
 		echo $connectionDbConFail . mysqli_connect_error();

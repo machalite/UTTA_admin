@@ -14,7 +14,7 @@
     header('Location: login.php');
   }
 ?>
-
+<html>
 <head>
 	<!-- META TAG-->
 	<meta charset="UTF-8" />

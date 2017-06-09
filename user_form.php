@@ -87,10 +87,27 @@
 										class="form-control" required>
 									</div>
 								</div>
+								<?php
+									if(empty($_GET['id']))
+										{ //Reveal textfields only if update user
+								?>
+								<div class="form-group">
+									<label class="control-label col-md-2 col-sm-3 col-xs-12">
+										<?php echo $formRePassword;?>
+											<span class="required">*</span>
+									</label>
+									<div class="col-md-9 col-sm-9 col-xs-12">
+										<input type="password" name="repass"
+										class="form-control" required>
+									</div>
+								</div>
+								<?php
+							}
+								?>
 
 								<?php
 									if(!empty($_GET['id']))
-										{ //Reveal textfield only if update user
+										{ //Reveal textfields only if update user
 								?>
 								<div class="form-group">
 									<label class="control-label col-md-2 col-sm-3 col-xs-12">
@@ -105,20 +122,7 @@
 
 								<div class="form-group">
 									<label class="control-label col-md-2 col-sm-3 col-xs-12">
-										<?php echo $formLastLogin;?>
-									</label>
-									<div class="col-md-9 col-sm-9 col-xs-12">
-										<input type="text" name="lastlogin" class="form-control"
-										 value="<?php echo $lastlogin;?>">
-									</div>
-								</div>
-								<?php
-										} //end if bracket
-								?>
-
-								<div class="form-group">
-									<label class="control-label col-md-2 col-sm-3 col-xs-12">
-										<?php echo $formRePassword;?>
+										<?php echo $formRenewPassword;?>
 											<span class="required">*</span>
 									</label>
 									<div class="col-md-9 col-sm-9 col-xs-12">
@@ -126,6 +130,20 @@
 										class="form-control" required>
 									</div>
 								</div>
+
+								<div class="form-group">
+									<label class="control-label col-md-2 col-sm-3 col-xs-12">
+										<?php echo $formLastLogin;?>
+									</label>
+									<div class="col-md-9 col-sm-9 col-xs-12">
+										<input type="text" name="lastlogin" class="form-control"
+										 value="<?php echo $lastlogin;?>" disabled="true">
+									</div>
+								</div>
+
+								<?php
+							} //end if bracket
+								?>
 
 							<div class="form-group">
 								<div class="col-md-6 col-sm-9 col-xs-12 col-md-offset-2">

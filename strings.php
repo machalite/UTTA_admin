@@ -40,8 +40,9 @@
   //user_form.php
   $formUsername                       ="Username";
   $formPassword                       ="Password";
-  $formNewPassword                    ="New Password";
-  $formRePassword                     ="Repeat Password";
+  $formNewPassword                    ="New password";
+  $formRePassword                     ="Repeat password";
+  $formRenewPassword                  ="Repeat new password";
   $formLastLogin                      ="Last logged in";
 
   //general strings
@@ -61,8 +62,9 @@
   $textSubmit                         ="Submit";
   $textReset                          ="Reset";
   //messages
-  $msgDel                             ="Deleted item cannot be recovered.\n
-                                        Proceed deletion ?";
+  $msgDel                             ="Proceed delete ?";
+  $msgDelSucceed                      ="Deleted succesfully";
+  $msgDelFail                         ="Deletion failed!";
   $msgPassNotMatch                    ="Password does not match!";
   $msgPassInv                         ="Invalid Password!";
   $msgInsFail                         ="Addition failed!";

@@ -1,4 +1,6 @@
 <?php
+//process submitted username and password
+
 	session_start();
   //fetch connection settings
 	include_once("connection.php");
@@ -11,28 +13,41 @@
 	$password = mysqli_real_escape_string($con,md5($_POST['password']));
 
 	// attempt select query execution
-	$sql = mysqli_query($con,"SELECT username,password FROM user WHERE username='$username' AND password='$password'");
+	$sql = mysqli_query($con,"SELECT username,password FROM user
+		WHERE username='$username' AND password='$password'");
 
 	$data=mysqli_fetch_array($sql,MYSQLI_ASSOC);
+
+	//contain the amount of record with matching username and password
 	$userNum=mysqli_num_rows($sql);
 
   //check if there is error
 	if($userNum==0)
   {
-    //No matching username and password
-    echo $logProcInvLogin;
-    include 'login.php';
+?>
+		<script>
+		// No matching username and password
+		// displays invalid password message and redirect to login page
+			alert("<?php echo $logProcInvLogin;?>");
+			window.location.href = "login.php";
+		</script>
+<?php
 	}
 	else if($userNum>1)
   {
-    //There are several matching username and password
-    echo $logProcDupLogin;
-		include 'login.php';
+		?>
+				<script>
+				// There are several matching username and password
+				// displays duplicate password message and redirect to login page
+					alert("<?php echo $logProcDupLogin;?>");
+					window.location.href = "login.php";
+				</script>
+		<?php
 	}
 	else
   {
     //set session if log in successful
-    //it will be used to prevent access to administration pages without login
+    //it will be used to access administration pages
     $_SESSION['username']=$data['username'];
     $_SESSION['password']=$data['password'];
     header("Location: index.php");
