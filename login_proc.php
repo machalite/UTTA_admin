@@ -13,7 +13,7 @@
 	$password = mysqli_real_escape_string($con,md5($_POST['password']));
 
 	// attempt select query execution
-	$sql = mysqli_query($con,"SELECT username,password FROM user
+	$sql = mysqli_query($con,"SELECT id,username,password FROM user
 		WHERE username='$username' AND password='$password'");
 
 	$data=mysqli_fetch_array($sql,MYSQLI_ASSOC);
@@ -48,8 +48,24 @@
   {
     //set session if log in successful
     //it will be used to access administration pages
+		$_SESSION['id']=$data['id'];
+		$id=$data['id'];
     $_SESSION['username']=$data['username'];
     $_SESSION['password']=$data['password'];
+
+		//Get login date and time
+		$dateTime=date('Y-m-d H:i:s');
+
+		//updates user's last login
+		$sql = "UPDATE user SET lastlogin='$dateTime'WHERE id=$id";
+		mysqli_query($con, $sql);
+
+		//insert new login in activity log
+		$sql = "INSERT INTO activitylog (user,activity,timestamp)
+			VALUES($id,'$actLogin','$dateTime')";
+		mysqli_query($con, $sql);
+
+		//redirect to main page
     header("Location: index.php");
 	}
 ?>

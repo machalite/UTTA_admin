@@ -45,6 +45,16 @@
   $formRenewPassword                  ="Repeat new password";
   $formLastLogin                      ="Last logged in";
 
+  //activity_log.php
+  $actLogTitle                        ="User activities";
+  $actLogUsername                     ="Username";
+  $actLogActivity                     ="Activities";
+  $actLogTime                         ="Timestamp";
+
+  //logs
+  $actLogin                           ="Logged in";
+  $actLogout                           ="Logged out";
+
   //general strings
   $textAdd                            ="Add";
   $textUpdate                         ="Update";
@@ -61,6 +71,7 @@
   $textCancel                         ="Cancel";
   $textSubmit                         ="Submit";
   $textReset                          ="Reset";
+  $textActivityLog                    ="Activity logs";
   //messages
   $msgDel                             ="Proceed delete ?";
   $msgDelSucceed                      ="Deleted succesfully";
