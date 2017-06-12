@@ -53,7 +53,10 @@
 
   //logs
   $actLogin                           ="Logged in";
-  $actLogout                           ="Logged out";
+  $actLogout                          ="Logged out";
+  $actCreate                          ="Created new";
+  $actDeleted                         ="Deleted";
+  $actUpdated                         ="Updated";
 
   //general strings
   $textAdd                            ="Add";

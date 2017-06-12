@@ -1,5 +1,6 @@
 <?php
   //fetch connection settings
+	@session_start();
 	include_once("connection.php");
 
 	//escape user inputs for security
@@ -9,6 +10,11 @@
 	//encrypt submitted passwords using MD5
 	$password =md5(mysqli_real_escape_string($con,$_POST['pass']));
   $reppassword =md5(mysqli_real_escape_string($con,$_POST['repass']));
+
+	//Get date and time
+	$dateTime=date('Y-m-d H:i:s');
+	//get user id from session
+	$userId=$_SESSION['id'];
 
   //Add user if ID is empty (insertion)
   if(empty($id))
@@ -32,6 +38,14 @@
       }
 			else
 			{
+				//concatenate activiy description
+				$strAct=$actCreate." ".$textUser." ".$username;
+				//record insertion in activity log
+				$sql = "INSERT INTO activitylog (user,activity,timestamp)
+					VALUES($userId,'$strAct','$dateTime')";
+
+				//execute SQL statement
+				mysqli_query($con, $sql);
 				//displays success message
 				echo "<center>".$msgInsSucceed."</center><br>";
 			}
@@ -50,13 +64,13 @@
     if($password!=$oldpassword)
     {
 			echo "<center>".$msgPassInv."</center><br>";
-			echo "<meta http-equiv='refresh'content='1; url=user.php";
+			echo "<meta http-equiv='refresh' content='1; url=user.php'>";
     }
 		//Check if new password repetition match
 		elseif ($newpassword!=$reppassword)
 		{
 			echo "<center>".$msgPassNotMatch."</center><br>";
-			echo "<meta http-equiv='refresh'content='1; url=user.php";
+			echo "<meta http-equiv='refresh' content='1; url=user.php'>";
 		}
 		//submitted password match with old password
 		//and password repetition matches
@@ -65,17 +79,25 @@
 			//attempt update query execution
 			$sql = "UPDATE user SET username='$username', password='$newpassword'
 				WHERE id=$id";
-				if(!mysqli_query($con, $sql))
-				{
-					//display fail message and sql error
-					echo $msgUpdFail. mysqli_error($con);
-				}
-				else
-				{
-					echo "<center>".$msgUpdSucceed."</center><br>";
-					//redirect page
-				  echo "<meta http-equiv='refresh' content='1; url=user.php'>";
-				}
+			if(!mysqli_query($con, $sql))
+			{
+				//display fail message and sql error
+				echo $msgUpdFail. mysqli_error($con);
+			}
+			else
+			{
+				//concatenate activiy description
+				$strAct=$actUpdated." ".$textUser." ".$username;
+				//record update in activity log
+				$sql = "INSERT INTO activitylog (user,activity,timestamp)
+					VALUES($userId,'$strAct','$dateTime')";
+				//execute SQL statement
+				mysqli_query($con, $sql);
+				//displays success message
+				echo "<center>".$msgUpdSucceed."</center><br>";
+			}
+			//redirect page
+			echo "<meta http-equiv='refresh' content='1; url=user.php'>";
 		}
   }
   //close db connection
