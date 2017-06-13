@@ -27,15 +27,37 @@
   $headerLogout                       ="Log Out";
   $sidebarTitle                       =$univName; //displays university name
   $sidebarMenu                        ="Menu";
+  $sidebarDepartment                  ="Department";
+  $sidebarFaculty                     ="Faculty";
+  $sidebarBuilding                    ="Building";
+  $sidebarCourse                      ="Course";
+  $sidebarRoom                        ="Room";
+  $sidebarClass                       ="Class";
+  $sidebarLecturer                    ="Lecturer";
+  $sidebarUser                        ="User";
+  $sidebarActivityLog                 ="Activity logs";
 
   //footer.php
   $footerText                         ="Created by Jonathan Huang 2017";
 
   //user.php
   $userTitle                          ="User administration";
-  $userTableUsername                  ="Username";
-  $userTableLastLogin                 ="Last Login";
-  $userTableAction                    ="Action";
+
+  //general table strings
+  $tableUsername                      ="Username";
+  $tableLastLogin                     ="Last Login";
+  $tableAction                        ="Action";
+  $tableName                          ="Name";
+  $tableCode                          ="Code";
+  $tableAction                        ="Actions";
+
+  //user_form.php
+  $formUsername                       ="Username";
+  $formPassword                       ="Password";
+  $formNewPassword                    ="New password";
+  $formRePassword                     ="Repeat password";
+  $formRenewPassword                  ="Repeat new password";
+  $formLastLogin                      ="Last logged in";
 
   //user_form.php
   $formUsername                       ="Username";
@@ -47,9 +69,10 @@
 
   //faculty.php
   $facultyTitle                       ="Faculties";
-  $facultyTableName                   ="Name";
-  $facultyTableCode                   ="Code";
-  $facultyTableAction                 ="Actions";
+
+  //faculty_form.php
+  $formName                           ="Name";
+  $formCode                           ="Code";
 
   //department.php
   $departmentTitle                    ="Departments";
@@ -72,18 +95,17 @@
   $textUpdate                         ="Update";
   $textDeactivate                     ="Deactivate";
   $textDelete                         ="Delete";
-  $textDepartment                     ="Department";
-  $textFaculty                        ="Faculty";
-  $textBuilding                       ="Building";
-  $textCourse                         ="Course";
-  $textRoom                           ="Room";
-  $textClass                          ="Class";
-  $textLecturer                       ="Lecturer";
-  $textUser                           ="User";
+  $textDepartment                     ="DEPARTMENT";
+  $textFaculty                        ="FACULTY";
+  $textBuilding                       ="BUILDING";
+  $textCourse                         ="COURSE";
+  $textRoom                           ="ROOM";
+  $textClass                          ="CLASS";
+  $textLecturer                       ="LECTURER";
+  $textUser                           ="USER";
   $textCancel                         ="Cancel";
   $textSubmit                         ="Submit";
   $textReset                          ="Reset";
-  $textActivityLog                    ="Activity logs";
   //messages
   $msgDel                             ="Proceed delete ?";
   $msgDelSucceed                      ="Deleted succesfully";
@@ -94,5 +116,7 @@
   $msgInsSucceed                      ="Added succesfully!";
   $msgUpdFail                         ="Update failed!";
   $msgUpdSucceed                      ="Updated succesfully!";
+  $msgWithId                          =" with ID: ";
+  $msgWithName                        =", NAME: ";
 
 ?>

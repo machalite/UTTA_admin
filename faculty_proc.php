@@ -7,7 +7,7 @@
 	include("connection.php");
 
 	$sql=mysqli_query($con,"SELECT id,code,name FROM faculty ORDER BY id");
-  while($data=mysqli_fetch_array($sql,MYSQLI_ASSOC))
+  	while($data=mysqli_fetch_array($sql,MYSQLI_ASSOC))
 	{
 			//populate table
 ?>
@@ -29,7 +29,8 @@
 					<i class="fa fa-power-off"></i></button>
 			</a>
 			<!-- delete button -->
-			<a href="faculty_del.php?&id=<?php echo $data['id']; ?>"
+			<a href="faculty_del.php?&id=<?php echo $data['id']; ?>
+				&name=<?php echo $data['name']; ?>"
 				onClick="return confirm('<?php echo $msgDel;?>')">
 				<button type="button" class="btn btn-danger">
 					<i class="fa fa-trash"></i></button>

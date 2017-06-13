@@ -1,6 +1,9 @@
 <?php
-  //fetch connection settings
+//process user's input from the form
+
 	@session_start();
+
+    //fetch connection settings
 	include_once("connection.php");
 
 	//escape user inputs for security
@@ -11,12 +14,10 @@
 	$password =md5(mysqli_real_escape_string($con,$_POST['pass']));
   $reppassword =md5(mysqli_real_escape_string($con,$_POST['repass']));
 
-	//Get date and time
-	$dateTime=date('Y-m-d H:i:s');
 	//get user id from session
 	$userId=$_SESSION['id'];
 
-  //Add user if ID is empty (insertion)
+  //Add if ID is empty (insertion)
   if(empty($id))
   {
     //Check if password repetition match
@@ -38,11 +39,11 @@
       }
 			else
 			{
-				//concatenate activiy description
-				$strAct=$actCreate." ".$textUser." ".$username;
+				//concatenate activity description
+				$strAct=$actCreate." ".$textUser." : ".$username;
 				//record insertion in activity log
-				$sql = "INSERT INTO activitylog (user,activity,timestamp)
-					VALUES($userId,'$strAct','$dateTime')";
+				$sql = "INSERT INTO activitylog (user,activity)
+					VALUES($userId,'$strAct')";
 
 				//execute SQL statement
 				mysqli_query($con, $sql);
@@ -52,7 +53,7 @@
 			echo "<meta http-equiv='refresh' content='1; url=user.php'>";
     }
   }
-  //update member if there is an ID
+  //update if there is an ID
   else
   {
     $newpassword =md5(mysqli_real_escape_string($con,$_POST['newpass']));
@@ -86,11 +87,11 @@
 			}
 			else
 			{
-				//concatenate activiy description
-				$strAct=$actUpdated." ".$textUser." ".$username;
+				//concatenate activity description
+				$strAct=$actUpdated." ".$textUser.$msgWithId.$id.$msgWithName.$username;
 				//record update in activity log
-				$sql = "INSERT INTO activitylog (user,activity,timestamp)
-					VALUES($userId,'$strAct','$dateTime')";
+				$sql = "INSERT INTO activitylog (user,activity)
+					VALUES($userId,'$strAct')";
 				//execute SQL statement
 				mysqli_query($con, $sql);
 				//displays success message

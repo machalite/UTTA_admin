@@ -21,7 +21,7 @@
     <div class="col-md-12 col-sm-12 col-xs-12 responsive">
       <div class="x_panel">
         <div class="x_title">
-          <a href="user_form.php">
+          <a href="faculty_form.php">
 						<!-- displays add button -->
             <button type="button" class="btn btn-success">
               <i class="fa fa-plus"></i>
@@ -32,9 +32,9 @@
           <table id="datatable" class="table table-striped table-bordered">
             <thead>
               <tr>
-                <th><?php echo $facultyTableCode;?></th>
-                <th><?php echo $facultyTableName;?></th>
-                <th><?php echo $facultyTableAction;?></th>
+                <th><?php echo $tableCode;?></th>
+                <th><?php echo $tableName;?></th>
+                <th><?php echo $tableAction;?></th>
 
               </tr>
             </thead>
@@ -50,7 +50,7 @@
     </div>
   </div>
 </div>
-  	<!-- END OF PAGE CONTENT -->
+<!-- END OF PAGE CONTENT -->
 
 <?php
 	//display footer

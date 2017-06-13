@@ -5,8 +5,9 @@
 	include_once ("strings.php");
 	//fetch connection settings
 	include("connection.php");
+
 	$sql=mysqli_query($con,"SELECT id,username,lastlogin FROM user ORDER BY id");
-  while($data=mysqli_fetch_array($sql,MYSQLI_ASSOC))
+  	while($data=mysqli_fetch_array($sql,MYSQLI_ASSOC))
 	{
 			//populate table
 ?>
@@ -28,7 +29,8 @@
 					<i class="fa fa-power-off"></i></button>
 			</a>
 			<!-- delete button -->
-			<a href="user_del.php?&id=<?php echo $data['id']; ?>"
+			<a href="user_del.php?&id=<?php echo $data['id']; ?>
+				&name=<?php echo $data['username']; ?>"
 				onClick="return confirm('<?php echo $msgDel;?>')">
 				<button type="button" class="btn btn-danger">
 					<i class="fa fa-trash"></i></button>

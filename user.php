@@ -32,9 +32,9 @@
           <table id="datatable" class="table table-striped table-bordered">
             <thead>
               <tr>
-                <th><?php echo $userTableUsername;?></th>
-                <th><?php echo $userTableLastLogin;?></th>
-                <th><?php echo $userTableAction;?></th>
+                <th><?php echo $tableUsername;?></th>
+                <th><?php echo $tableLastLogin;?></th>
+                <th><?php echo $tableAction;?></th>
               </tr>
             </thead>
             <tbody>
@@ -49,9 +49,9 @@
     </div>
   </div>
 </div>
-  	<!-- END OF PAGE CONTENT -->
+<!-- END OF PAGE CONTENT -->
 
 <?php
 	//display footer
-	require("footer.php");
+	include("footer.php");
 ?>

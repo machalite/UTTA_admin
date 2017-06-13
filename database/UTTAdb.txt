@@ -108,7 +108,7 @@ CREATE TABLE activitylog
 	id int AUTO_INCREMENT NOT NULL,
 	user int,
 	activity varchar(50),
-	timestamp datetime,
+	timestamp datetime DEFAULT CURRENT_TIMESTAMP,
 	PRIMARY KEY(id),
 	FOREIGN KEY(user) REFERENCES user(id)
 );

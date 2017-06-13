@@ -6,13 +6,14 @@
 	//fetch strings to display
 	include_once ("strings.php");
 
-	//if there passed ID, then fill textbox with data
+	//if there is passed ID, then fill textbox with data
 	if(!empty($_GET['id']))
 	{
 		include_once("connection.php");
 
 		//display update form title
 		$text=$textUpdate." ".$textUser;
+
 		// attempt select query execution
 		$sql=mysqli_query($con,"SELECT id,username,password,lastlogin
 			FROM user WHERE id='$_GET[id]'");
@@ -24,16 +25,16 @@
 		$password=$data['password'];
 		$lastlogin=$data['lastlogin'];
 	}
-	else {
-				$text=$textAdd." ".$textUser;
-				$id=null;
-				$username="";
-				$password="";
-				$lastlogin="";
+	else 
+	{
+		$text=$textAdd." ".$textUser;
+		$id=null;
+		$username="";
+		$password="";
+		$lastlogin="";
 	}
 
 ?>
-
 	<!-- PAGE CONTENT -->
 	<div class="right_col" role="main">
 		<div class="">
@@ -145,23 +146,23 @@
 							} //end if bracket
 								?>
 
-							<div class="form-group">
-								<div class="col-md-6 col-sm-9 col-xs-12 col-md-offset-2">
-									<a href="user.php">
-										<button type="button" class="btn btn-danger">
-										<i class="fa fa-reply"></i>
-											<?php echo $textCancel;?></button>
-									</a>
+								<div class="form-group">
+									<div class="col-md-6 col-sm-9 col-xs-12 col-md-offset-2">
+										<a href="user.php">
+											<button type="button" class="btn btn-danger">
+											<i class="fa fa-reply"></i>
+												<?php echo $textCancel;?></button>
+										</a>
 
-									<button type="reset" class="btn btn-secondary">
-										<i class="fa fa-undo"></i>
-											<?php echo $textReset;?></button>
+										<button type="reset" class="btn btn-secondary">
+											<i class="fa fa-undo"></i>
+												<?php echo $textReset;?></button>
 
-									<button type="submit" class="btn btn-primary">
-										<i class="fa fa-check"></i>
-											<?php echo $textSubmit;?></button>
+										<button type="submit" class="btn btn-primary">
+											<i class="fa fa-check"></i>
+												<?php echo $textSubmit;?></button>
+									</div>
 								</div>
-							</div>
 						</form>
 						<!-- END OF FORM -->
 					</div>
@@ -171,7 +172,7 @@
 	</div>
 	<!-- END OF PAGE CONTENT -->
 
-	<?php
-		//display footer
-		require("footer.php");
-	?>
+<?php
+	//display footer
+	include("footer.php");
+?>

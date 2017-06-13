@@ -73,47 +73,47 @@
 
                   <li>
                     <a href="user.php"><i class="fa fa-users"></i>
-                      <?php echo $textUser;?> </a>
+                      <?php echo $sidebarUser;?> </a>
                   </li>
 
                   <li>
                     <a href="activity_log.php"><i class="fa fa-bar-chart "></i>
-                      <?php echo $textActivityLog?> </a>
+                      <?php echo $sidebarActivityLog?> </a>
                   </li>
 
   								<li>
-  									<a href="department.php"><i class="fa fa-graduation-cap"></i>
-                      <?php echo $textDepartment;?> </a>
+  									<a href="faculty.php"><i class="fa fa-university"></i>
+                      <?php echo $sidebarFaculty;?></a>
   								</li>
 
   								<li>
-  									<a href="faculty.php"><i class="fa fa-university"></i>
-                      <?php echo $textFaculty;?></a>
+  									<a href="department.php"><i class="fa fa-graduation-cap"></i>
+                      <?php echo $sidebarDepartment;?> </a>
   								</li>
 
   								<li>
   									<a href="building.php"><i class="fa fa-building"></i>
-                      <?php echo $textBuilding;?> </a>
+                      <?php echo $sidebarBuilding;?> </a>
   								</li>
 
   								<li>
   									<a href="course.php"><i class="fa fa-book"></i>
-                      <?php echo $textCourse;?> </a>
+                      <?php echo $sidebarCourse;?> </a>
   								</li>
 
                   <li>
                     <a href="class.php"><i class="fa fa-pencil"></i>
-                      <?php echo $textClass;?> </a>
+                      <?php echo $sidebarClass;?> </a>
                   </li>
 
                   <li>
                     <a href="lecturer.php"><i class="fa  fa-male"></i>
-                      <?php echo $textLecturer;?> </a>
+                      <?php echo $sidebarLecturer;?> </a>
                   </li>
 
                   <li>
                     <a href="room.php"><i class="fa fa-check-square "></i>
-                      <?php echo $textRoom?> </a>
+                      <?php echo $sidebarRoom?> </a>
                   </li>
   							</ul>
   						</div>

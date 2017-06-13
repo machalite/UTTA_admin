@@ -61,8 +61,8 @@
 		mysqli_query($con, $sql);
 
 		//insert new login in activity log
-		$sql = "INSERT INTO activitylog (user,activity,timestamp)
-			VALUES($userId,'$actLogin','$dateTime')";
+		$sql = "INSERT INTO activitylog (user,activity)
+			VALUES($userId,'$actLogin')";
 		mysqli_query($con, $sql);
 
 		//redirect to main page
