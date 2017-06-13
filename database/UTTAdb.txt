@@ -1,66 +1,66 @@
 CREATE TABLE faculty
 (
 	id int AUTO_INCREMENT NOT NULL,
-    code varchar(10) UNIQUE,
-    name varchar(50) NOT NULL,
-    PRIMARY KEY (id)
+  code varchar(10) UNIQUE,
+  name varchar(50) NOT NULL,
+  PRIMARY KEY (id)
 );
 
 CREATE TABLE department
 (
 	id int AUTO_INCREMENT NOT NULL,
-    code varchar(10) UNIQUE,
-    name varchar(50) NOT NULL,
-    faculty int,
+  code varchar(10) UNIQUE,
+  name varchar(50) NOT NULL,
+  faculty int,
 	PRIMARY KEY(id),
-    FOREIGN KEY(faculty) REFERENCES faculty(id)
+  FOREIGN KEY(faculty) REFERENCES faculty(id)
 );
 
 CREATE TABLE lecturer
 (
 	id int AUTO_INCREMENT NOT NULL,
-    code varchar(20) UNIQUE,
-    name varchar(50) NOT NULL,
+  code varchar(20) UNIQUE,
+  name varchar(50) NOT NULL,
 	PRIMARY KEY(id)
 );
 
 CREATE TABLE student
 (
 	id int AUTO_INCREMENT NOT NULL,
-    code varchar(20) UNIQUE,
-    name varchar(50) NOT NULL,
-    faculty int,
-    department int,
+  code varchar(20) UNIQUE,
+  name varchar(50) NOT NULL,
+  faculty int,
+  department int,
 	PRIMARY KEY(id),
-    FOREIGN KEY(faculty) REFERENCES faculty(id),
-    FOREIGN KEY(department) REFERENCES department(id)
+  FOREIGN KEY(faculty) REFERENCES faculty(id),
+  FOREIGN KEY(department) REFERENCES department(id)
 );
 
 CREATE TABLE building
 (
 	id int AUTO_INCREMENT NOT NULL,
-    name varchar(50) NOT NULL,
-    description text,
+  name varchar(50) NOT NULL,
+  description text,
 	PRIMARY KEY(id)
 );
 
 CREATE TABLE room
 (
 	id int AUTO_INCREMENT NOT NULL,
-    code varchar(10) UNIQUE,
-    name varchar(50) NOT NULL,
-    building int,
-    floor int,
+  code varchar(10) UNIQUE,
+  name varchar(50) NOT NULL,
+  building int,
+  floor int,
 	description text,
 	PRIMARY KEY(id),
-    FOREIGN KEY(building) REFERENCES building(id)
+  FOREIGN KEY(building) REFERENCES building(id)
 );
 
 CREATE TABLE year
 (
 	id int AUTO_INCREMENT NOT NULL,
-    name varchar(50) NOT NULL,
-    startdate date NOT NULL,
+  name varchar(50) NOT NULL,
+  startdate date NOT NULL,
 	enddate date NOT NULL,
 	PRIMARY KEY(id)
 );
@@ -68,30 +68,30 @@ CREATE TABLE year
 CREATE TABLE course
 (
 	id int AUTO_INCREMENT NOT NULL,
-    code varchar(20) UNIQUE,
-    name varchar(50) NOT NULL,
-    faculty int,
-    department int,
-    lecturer int,
-    year int,
+  code varchar(20) UNIQUE,
+  name varchar(50) NOT NULL,
+  faculty int,
+  department int,
+  lecturer int,
+  year int,
 	PRIMARY KEY(id),
-    FOREIGN KEY(faculty) REFERENCES faculty(id),
-    FOREIGN KEY(department) REFERENCES department(id),
-    FOREIGN KEY(lecturer) REFERENCES lecturer(id),
+  FOREIGN KEY(faculty) REFERENCES faculty(id),
+  FOREIGN KEY(department) REFERENCES department(id),
+  FOREIGN KEY(lecturer) REFERENCES lecturer(id),
 	FOREIGN KEY(year) REFERENCES year(id)
 );
 
 CREATE TABLE class
 (
 	id int AUTO_INCREMENT NOT NULL,
-    day int NOT NULL,
-    startclass time NOT NULL,
+  day int NOT NULL,
+  startclass time NOT NULL,
 	endclass time NOT NULL,
-    course int,
-    room int,
+  course int,
+  room int,
 	PRIMARY KEY(id),
-    FOREIGN KEY(course) REFERENCES course(id),
-    FOREIGN KEY(room) REFERENCES room(id)
+  FOREIGN KEY(course) REFERENCES course(id),
+  FOREIGN KEY(room) REFERENCES room(id)
 );
 
 CREATE TABLE user

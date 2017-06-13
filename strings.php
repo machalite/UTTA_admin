@@ -45,6 +45,15 @@
   $formRenewPassword                  ="Repeat new password";
   $formLastLogin                      ="Last logged in";
 
+  //faculty.php
+  $facultyTitle                       ="Faculties";
+  $facultyTableName                   ="Name";
+  $facultyTableCode                   ="Code";
+  $facultyTableAction                 ="Actions";
+
+  //department.php
+  $departmentTitle                    ="Departments";
+
   //activity_log.php
   $actLogTitle                        ="User activities";
   $actLogUsername                     ="Username";
