@@ -49,6 +49,7 @@
   $tableAction                        ="Action";
   $tableName                          ="Name";
   $tableCode                          ="Code";
+  $tableActive                        ="Active";
   $tableAction                        ="Actions";
 
   //user_form.php
@@ -89,6 +90,7 @@
   $actCreate                          ="Created new";
   $actDeleted                         ="Deleted";
   $actUpdated                         ="Updated";
+  $actDeactivated                     ="Deactivated";
 
   //general strings
   $textAdd                            ="Add";
@@ -116,6 +118,10 @@
   $msgInsSucceed                      ="Added succesfully!";
   $msgUpdFail                         ="Update failed!";
   $msgUpdSucceed                      ="Updated succesfully!";
+  $msgActFail                         ="Activation failed!";
+  $msgActSucceed                      ="Activated succesfully!";
+  $msgDeaActFail                      ="Deactivation failed!";
+  $msgDeActSucceed                    ="Deactivated succesfully!";
   $msgWithId                          =" with ID: ";
   $msgWithName                        =", NAME: ";
 

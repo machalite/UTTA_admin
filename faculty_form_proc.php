@@ -7,7 +7,7 @@
 	include_once("connection.php");
 
 	//escape user inputs for security
-    $id = mysqli_real_escape_string($con, $_POST['id']);
+  $id = mysqli_real_escape_string($con, $_POST['id']);
 	$name = mysqli_real_escape_string($con, $_POST['name']);
 	$code = mysqli_real_escape_string($con, $_POST['code']);
 
@@ -21,7 +21,7 @@
     $sql = "INSERT INTO faculty (name,code)VALUES('$name','$code')";
 
     if(!mysqli_query($con, $sql))
-	{	
+	{
         //displays fail message and sql error
         echo $msgInsFail. mysqli_error($con);
     }

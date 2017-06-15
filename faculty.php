@@ -5,6 +5,8 @@
 	include_once ("header.php");
 	//fetch strings to display
 	include_once ("strings.php");
+	//fetch connection settings
+	include("connection.php");
 ?>
 
 <!-- PAGE CONTENT -->
@@ -34,14 +36,50 @@
               <tr>
                 <th><?php echo $tableCode;?></th>
                 <th><?php echo $tableName;?></th>
+								<th><?php echo $tableActive;?></th>
                 <th><?php echo $tableAction;?></th>
-
               </tr>
             </thead>
             <tbody>
               <?php
-								//populate data table
-								include 'faculty_proc.php';
+							//populate table with data from database
+							$strDisp="SELECT id,code,name,active FROM faculty ORDER BY id";
+							$sql=mysqli_query($con,$strDisp);
+							while($data=mysqli_fetch_array($sql,MYSQLI_ASSOC))
+							{//begin populate table?>
+								<tr>
+									<td><?php echo $data['code'];?></td>
+									<td><?php echo $data['name'];?></td>
+									<td>
+										<input type="checkbox" name="active" disabled
+										<?php if($data['active']==1){?>checked<?php } ?>>
+									</td>
+
+									<!-- generate action buttons -->
+									<td width="160">
+										<!-- update button -->
+										<a href="faculty_form.php?&id=<?php echo $data['id']; ?>
+											&ops=2">
+											<button type="button" class="btn btn-primary">
+												<i class="fa fa-pencil"></i></button>
+										</a>
+										<!-- deactivate button -->
+										<a href="faculty_func.php?&id=<?php echo $data['id']; ?>
+											&name=<?php echo $data['name']; ?>
+											&active=<?php echo $data['active']; ?>&ops=4">
+											<button type="button" class="btn btn-secondary">
+												<i class="fa fa-power-off"></i></button>
+										</a>
+										<!-- delete button -->
+										<a href="faculty_func.php?&id=<?php echo $data['id']; ?>
+											&name=<?php echo $data['name']; ?>&ops=3"
+											onClick="return confirm('<?php echo $msgDel;?>')">
+											<button type="button" class="btn btn-danger">
+												<i class="fa fa-trash"></i></button>
+										</a>
+									</td>
+								</tr>
+							<?php }//end populate table
 							?>
             </tbody>
           </table>
@@ -54,5 +92,5 @@
 
 <?php
 	//display footer
-	require("footer.php");
+	include("footer.php");
 ?>

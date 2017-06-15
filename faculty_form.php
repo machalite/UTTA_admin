@@ -23,13 +23,17 @@
 		$id=$data['id'];
 		$name=$data['name'];
 		$code=$data['code'];
+		
+		$link="faculty_func.php?&ops=2";
 	}
-	else 
+	else
 	{
 		$text=$textAdd." ".$textFaculty;
 		$id=null;
 		$name="";
 		$code="";
+
+		$link="faculty_func.php?&ops=1";
 	}
 
 ?>
@@ -53,7 +57,7 @@
 					<br />
 						<!-- FORM -->
 						<form name="facultyForm" method="post"
-							action="faculty_form_proc.php" enctype="multipart/form-data"
+							action="<?php echo $link?>" enctype="multipart/form-data"
 								class="form-horizontal form-label-left">
 
 								<!-- hidden textfield for id -->
@@ -78,24 +82,22 @@
 										required value="<?php echo $name;?>">
 									</div>
 								</div>
+								<div class="form-group">
+										<div class="col-md-6 col-sm-9 col-xs-12 col-md-offset-2">
+												<a href="faculty.php">
+														<button type="button" class="btn btn-danger">
+														<i class="fa fa-reply"></i>
+																<?php echo $textCancel;?></button></a>
 
-                                <div class="form-group">
-                                    <div class="col-md-6 col-sm-9 col-xs-12 col-md-offset-2">
-                                        <a href="faculty.php">
-                                            <button type="button" class="btn btn-danger">
-                                            <i class="fa fa-reply"></i>
-                                                <?php echo $textCancel;?></button>
-                                        </a>
+												<button type="reset" class="btn btn-secondary">
+														<i class="fa fa-undo"></i>
+																<?php echo $textReset;?></button>
 
-                                        <button type="reset" class="btn btn-secondary">
-                                            <i class="fa fa-undo"></i>
-                                                <?php echo $textReset;?></button>
-
-                                        <button type="submit" class="btn btn-primary">
-                                            <i class="fa fa-check"></i>
-                                                <?php echo $textSubmit;?></button>
-                                    </div>
-                                </div>
+												<button type="submit" class="btn btn-primary">
+														<i class="fa fa-check"></i>
+																<?php echo $textSubmit;?></button>
+										</div>
+								</div>
 						</form>
 						<!-- END OF FORM -->
 					</div>
