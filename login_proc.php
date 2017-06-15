@@ -14,7 +14,7 @@
 
 	// attempt select query execution
 	$sql = mysqli_query($con,"SELECT id,username,password FROM user
-		WHERE username='$username' AND password='$password'");
+		WHERE username='$username' AND password='$password' AND active=1");
 
 	$data=mysqli_fetch_array($sql,MYSQLI_ASSOC);
 

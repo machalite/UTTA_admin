@@ -90,7 +90,8 @@
   $actCreate                          ="Created new";
   $actDeleted                         ="Deleted";
   $actUpdated                         ="Updated";
-  $actDeactivated                     ="Deactivated";
+  $actActivated                       ="Activated";
+  $actDeActivated                     ="Deactivated";
 
   //general strings
   $textAdd                            ="Add";
@@ -120,7 +121,7 @@
   $msgUpdSucceed                      ="Updated succesfully!";
   $msgActFail                         ="Activation failed!";
   $msgActSucceed                      ="Activated succesfully!";
-  $msgDeaActFail                      ="Deactivation failed!";
+  $msgDeActFail                       ="Deactivation failed!";
   $msgDeActSucceed                    ="Deactivated succesfully!";
   $msgWithId                          =" with ID: ";
   $msgWithName                        =", NAME: ";

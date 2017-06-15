@@ -5,6 +5,8 @@
 	include_once ("header.php");
 	//fetch strings to display
 	include_once ("strings.php");
+	//fetch connection settings
+	include("connection.php");
 ?>
 
 <!-- PAGE CONTENT -->
@@ -33,9 +35,19 @@
             </thead>
             <tbody>
               <?php
-								//populate data table
-								include 'activity_log_proc.php';
-							?>
+							//populate the table with activity log from database
+							$strDisp="SELECT a.id,username,activity,timestamp
+							FROM activitylog a, user u
+							WHERE a.user=u.id ORDER BY timestamp DESC";
+							$sql=mysqli_query($con,$strDisp);
+							while($data=mysqli_fetch_array($sql,MYSQLI_ASSOC))
+							{//begin populate table?>
+							<tr>
+								<td><?php echo $data['username'];?></td>
+								<td><?php echo $data['activity'];?></td>
+								<td><?php echo $data['timestamp'];?></td>
+							</tr>
+							<?php  }//end populate table ?>
             </tbody>
           </table>
         </div>

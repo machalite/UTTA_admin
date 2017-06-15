@@ -107,31 +107,38 @@
     //------------------------------DEACTIVATE--------------------------------------
     elseif ($ops==4)
     {
-      //get selected record's id and username
+      //get selected record's id and name
       $id=$_GET['id'];
       $name=$_GET['name'];
       $active=$_GET['active'];
 
       //deactivate or activate record
-      if($active==0)
+      if($active==1)
+      {
+        $active=0;
+        $msgFail=$msgDeActFail;
+        $msgSuccess=$msgDeActSucceed;
+        $msgAct=$actDeActivated;
+      }
+      elseif($active==0)
       {
         $active=1;
-
+        $msgFail=$msgActFail;
+        $msgSuccess=$msgActSucceed;
+        $msgAct=$actActivated;
       }
-      elseif($active==1)
-        $active=0;
 
       //attempt update query execution
       $sql = "UPDATE faculty SET active=$active WHERE id=$id";
       if(!mysqli_query($con, $sql))
       {
         //display fail message and sql error
-        echo $msgDeActFail. mysqli_error($con);
+        echo $msgFail. mysqli_error($con);
       }
       else
       {
         //concatenate activity description
-        $strDeAct=$actUpdated." ".$textFaculty.
+        $strDeAct=$msgAct." ".$textFaculty.
           $msgWithId.$id.$msgWithName.$name;
 
         //record update in activity log
@@ -140,7 +147,7 @@
         //execute SQL statement
         mysqli_query($con, $sql);
         //displays success message
-        echo "<center>".$msgDeActSucceed."</center><br>";
+        echo "<center>".$msgSuccess."</center><br>";
       }
       //close connection
       mysqli_close($con);
