@@ -38,15 +38,18 @@
   						<h1><?php echo $loginTitle;?></h1>
 
   						<div>
-  							<input type="text" name="username" class="form-control" placeholder="Username" required="" />
+  							<input type="text" name="username" class="form-control"
+                  placeholder="Username" required="" />
   						</div>
 
   						<div>
-  							<input type="password" name="password" class="form-control" placeholder="Password" required="" />
+  							<input type="password" name="password" class="form-control"
+                  placeholder="Password" required="" />
   						</div>
 
   						<div>
-  							<button type="submit" class="btn btn-primary"><?php echo $loginButton;?></button>
+  							<button type="submit" class="btn btn-primary">
+                    <?php echo $loginButton;?></button>
   						</div>
 
   						<div class="separator"></div>

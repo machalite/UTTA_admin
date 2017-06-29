@@ -17,9 +17,11 @@
       $id = mysqli_real_escape_string($con, $_POST['id']);
       $name = mysqli_real_escape_string($con, $_POST['name']);
       $code = mysqli_real_escape_string($con, $_POST['code']);
+      $faculty = mysqli_real_escape_string($con, $_POST['faculty']);
 
       //attempt insert query execution
-      $strIns = "INSERT INTO faculty (name,code)VALUES('$name','$code')";
+      $strIns = "INSERT INTO department (name,code,faculty)
+        VALUES('$name','$code','$faculty')";
 
       if(!mysqli_query($con, $strIns))
       {
@@ -29,7 +31,7 @@
       else
       {
         //concatenate activity description
-  		  $strAct=$actCreate." ".$textFaculty." : ".$name;
+  		  $strAct=$actCreate." ".$textDepartment." : ".$name;
   		  //record insertion in activity log
   		  $sql = "INSERT INTO activitylog (user,activity)
   		  VALUES($userId,'$strAct')";
@@ -40,7 +42,7 @@
       }
       //close connection
       mysqli_close($con);
-      echo "<meta http-equiv='refresh' content='1; url=faculty.php'>";
+      echo "<meta http-equiv='refresh' content='1; url=department.php'>";
     }
     //------------------------------UPDATE--------------------------------------
     elseif ($ops==2)
@@ -49,9 +51,11 @@
       $id = mysqli_real_escape_string($con, $_POST['id']);
       $name = mysqli_real_escape_string($con, $_POST['name']);
       $code = mysqli_real_escape_string($con, $_POST['code']);
+      $faculty = mysqli_real_escape_string($con, $_POST['faculty']);
 
       //attempt update query execution
-      $sql = "UPDATE faculty SET name='$name', code='$code'WHERE id=$id";
+      $sql = "UPDATE department SET name='$name', code='$code',
+        faculty='$faculty' WHERE id=$id";
       if(!mysqli_query($con, $sql))
       {
         //display fail message and sql error
@@ -60,7 +64,8 @@
       else
       {
         //concatenate activity description
-        $strAct=$actUpdated." ".$textFaculty.$msgWithId.$id.$msgWithName.$name;
+        $strAct=$actUpdated." ".$textDepartment.
+          $msgWithId.$id.$msgWithName.$name;
         //record update in activity log
         $sql = "INSERT INTO activitylog (user,activity)
           VALUES($userId,'$strAct')";
@@ -72,7 +77,7 @@
       //close connection
       mysqli_close($con);
       //redirect page
-      echo "<meta http-equiv='refresh' content='1; url=faculty.php'>";
+      echo "<meta http-equiv='refresh' content='1; url=department.php'>";
     }
     //--------------------------------DELETE------------------------------------
     elseif ($ops==3)
@@ -82,7 +87,7 @@
       $name=$_GET['name'];
 
       // attempt delete
-      $sql="DELETE FROM faculty WHERE id='$id'";
+      $sql="DELETE FROM department WHERE id='$id'";
 
       if(!mysqli_query($con, $sql))
       {
@@ -95,14 +100,15 @@
         //record deletion in activity log
         //get user id from session
         $userId=$_SESSION['id'];
-        $strAct=$actDeleted." ".$textFaculty.$msgWithId.$id.$msgWithName.$name;
+        $strAct=$actDeleted." ".$textDepartment.$msgWithId.
+          $id.$msgWithName.$name;
         $sql = "INSERT INTO activitylog (user,activity)
           VALUES($userId,'$strAct')";
         mysqli_query($con, $sql);
     	}
       //close connection
       mysqli_close($con);
-      echo "<meta http-equiv='refresh' content='1; url=faculty.php'>";
+      echo "<meta http-equiv='refresh' content='1; url=department.php'>";
     }
     //------------------------------DEACTIVATE----------------------------------
     elseif ($ops==4)
@@ -129,7 +135,7 @@
       }
 
       //attempt update query execution
-      $sql = "UPDATE faculty SET active=$active WHERE id=$id";
+      $sql = "UPDATE department SET active=$active WHERE id=$id";
       if(!mysqli_query($con, $sql))
       {
         //display fail message and sql error
@@ -138,7 +144,7 @@
       else
       {
         //concatenate activity description
-        $strDeAct=$msgAct." ".$textFaculty.
+        $strDeAct=$msgAct." ".$textDepartment.
           $msgWithId.$id.$msgWithName.$name;
 
         //record update in activity log
@@ -152,7 +158,7 @@
       //close connection
       mysqli_close($con);
       //redirect page
-      echo "<meta http-equiv='refresh' content='1; url=faculty.php'>";
+      echo "<meta http-equiv='refresh' content='1; url=department.php'>";
     }
 
 ?>

@@ -51,6 +51,7 @@
   $tableCode                          ="Code";
   $tableActive                        ="Active";
   $tableAction                        ="Actions";
+  $tableFaculty                       ="Faculty";
 
   //user_form.php
   $formUsername                       ="Username";
@@ -70,6 +71,9 @@
 
   //faculty.php
   $facultyTitle                       ="Faculties";
+
+  //department.php
+  $departmentTitle                    ="Departments";
 
   //faculty_form.php
   $formName                           ="Name";

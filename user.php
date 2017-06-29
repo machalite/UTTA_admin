@@ -47,7 +47,7 @@
 							$sql=mysqli_query($con,"SELECT id,username,lastlogin,active
 								FROM user ORDER BY id");
 								while($data=mysqli_fetch_array($sql,MYSQLI_ASSOC))
-							{//populate table?>
+							{//begin populate table?>
 
 							<tr>
 								<td><?php echo $data['username'];?></td>
