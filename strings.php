@@ -49,25 +49,26 @@
   $tableAction                        ="Action";
   $tableName                          ="Name";
   $tableCode                          ="Code";
+  $tableDescription                   ="Description";
   $tableActive                        ="Active";
   $tableAction                        ="Actions";
   $tableFaculty                       ="Faculty";
+  $tableBuilding                      ="Building";
+  $tableFloor                         ="Floor number";
 
-  //user_form.php
+  //General forms
   $formUsername                       ="Username";
   $formPassword                       ="Password";
   $formNewPassword                    ="New password";
   $formRePassword                     ="Repeat password";
   $formRenewPassword                  ="Repeat new password";
   $formLastLogin                      ="Last logged in";
-
-  //user_form.php
-  $formUsername                       ="Username";
-  $formPassword                       ="Password";
-  $formNewPassword                    ="New password";
-  $formRePassword                     ="Repeat password";
-  $formRenewPassword                  ="Repeat new password";
-  $formLastLogin                      ="Last logged in";
+  $formName                           ="Name";
+  $formCode                           ="Code";
+  $formDescription                    ="Description";
+  $formBuilding                       ="Building";
+  $formFaculty                        ="Faculty";
+  $formFloor                          ="Floor";
 
   //faculty.php
   $facultyTitle                       ="Faculties";
@@ -75,11 +76,13 @@
   //department.php
   $departmentTitle                    ="Departments";
 
-  //faculty_form.php
-  $formName                           ="Name";
-  $formCode                           ="Code";
+  //building.php
+  $buildingTitle                      ="Buildings";
 
-  //department.php
+  //building.php
+  $roomTitle                          ="Rooms";
+
+  //room.php
   $departmentTitle                    ="Departments";
 
   //activity_log.php

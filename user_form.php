@@ -24,14 +24,18 @@
 		$username=$data['username'];
 		$password=$data['password'];
 		$lastlogin=$data['lastlogin'];
+
+		$link="user_func.php?&ops=2";
 	}
-	else 
+	else
 	{
 		$text=$textAdd." ".$textUser;
 		$id=null;
-		$username="";
-		$password="";
-		$lastlogin="";
+		$username=null;
+		$password=null;
+		$lastlogin=null;
+
+		$link="user_func.php?&ops=1";
 	}
 
 ?>
@@ -55,7 +59,7 @@
 					<br />
 						<!-- FORM -->
 						<form name="userForm" method="post"
-							action="user_form_proc.php" enctype="multipart/form-data"
+							action="<?php echo $link?>" enctype="multipart/form-data"
 								class="form-horizontal form-label-left">
 
 								<!-- hidden textfield for id -->

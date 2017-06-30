@@ -73,12 +73,14 @@
 											<i class="fa fa-power-off"></i></button>
 									</a>
 									<!-- delete button -->
-									<a href="user_func.php?&id=<?php echo $data['id']; ?>
-										&name=<?php echo $data['username']; ?>&ops=3"
-										onClick="return confirm('<?php echo $msgDel;?>')">
+									<!-- Uncomment if you want user be able to
+									permanently delete record -->
+									<!-- <a href="user_func.php?&id=<?php //echo $data['id']; ?>
+										&name=<?php //echo $data['username']; ?>&ops=3"
+										onClick="return confirm('<?php //echo $msgDel;?>')">
 										<button type="button" class="btn btn-danger">
 											<i class="fa fa-trash"></i></button>
-									</a>
+									</a> -->
 								</td>
 							</tr>
 						<?php } //end populate table ?>

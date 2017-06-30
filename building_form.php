@@ -12,28 +12,28 @@
 		include_once("connection.php");
 
 		//display update form title
-		$text=$textUpdate." ".$textFaculty;
+		$text=$textUpdate." ".$textBuilding;
 
 		// attempt select query execution
-		$sql=mysqli_query($con,"SELECT id,code,name
-			FROM faculty WHERE id='$_GET[id]'");
+		$sql=mysqli_query($con,"SELECT id,description,name
+			FROM building WHERE id='$_GET[id]'");
 		$data=mysqli_fetch_array($sql,MYSQLI_ASSOC);
 
 		//fill variable with data from database to show in textfield
 		$id=$data['id'];
 		$name=$data['name'];
-		$code=$data['code'];
+		$description=$data['description'];
 
-		$link="faculty_func.php?&ops=2";
+		$link="building_func.php?&ops=2";
 	}
 	else
 	{
-		$text=$textAdd." ".$textFaculty;
+		$text=$textAdd." ".$textBuilding;
 		$id=null;
-		$name=null;
-		$code=null;
+		$name="";
+		$description="";
 
-		$link="faculty_func.php?&ops=1";
+		$link="building_func.php?&ops=1";
 	}
 
 ?>
@@ -56,22 +56,12 @@
 					<div class="x_content">
 					<br />
 						<!-- FORM -->
-						<form name="facultyForm" method="post"
+						<form name="buildingForm" method="post"
 							action="<?php echo $link?>" enctype="multipart/form-data"
 								class="form-horizontal form-label-left">
 
 								<!-- hidden textfield for id -->
 								<input type="hidden" name="id" value="<?php echo $id;?>">
-
-								<div class="form-group">
-									<label class="control-label col-md-2 col-sm-3 col-xs-12">
-										<?php echo $formCode;?> <span class="required">*</span>
-									</label>
-									<div class="col-md-9 col-sm-9 col-xs-12">
-										<input type="text" name="code" class="form-control"
-										required value="<?php echo $code;?>">
-									</div>
-								</div>
 
 								<div class="form-group">
 									<label class="control-label col-md-2 col-sm-3 col-xs-12">
@@ -82,9 +72,19 @@
 										required value="<?php echo $name;?>">
 									</div>
 								</div>
+
+                <div class="form-group">
+									<label class="control-label col-md-2 col-sm-3 col-xs-12">
+										<?php echo $formDescription;?></label>
+									<div class="col-md-9 col-sm-9 col-xs-12">
+										<textarea type="text" name="description"
+										class="form-control"><?php echo $description;?></textarea>
+									</div>
+								</div>
+
 								<div class="form-group">
 										<div class="col-md-6 col-sm-9 col-xs-12 col-md-offset-2">
-												<a href="faculty.php">
+												<a href="building.php">
 														<button type="button" class="btn btn-danger">
 														<i class="fa fa-reply"></i>
 																<?php echo $textCancel;?></button></a>

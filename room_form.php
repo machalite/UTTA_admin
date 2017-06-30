@@ -12,30 +12,34 @@
 		include_once("connection.php");
 
 		//display update form title
-		$text=$textUpdate." ".$textDepartment;
+		$text=$textUpdate." ".$textRoom;
 
 		// attempt select query execution
-		$sql=mysqli_query($con,"SELECT id,code,name,faculty
-			FROM department WHERE id='$_GET[id]'");
+		$sql=mysqli_query($con,"SELECT id,code,name,building,description,floor
+			FROM room WHERE id='$_GET[id]'");
 		$data=mysqli_fetch_array($sql,MYSQLI_ASSOC);
 
 		//fill variable with data from database to show in textfield
 		$id=$data['id'];
 		$name=$data['name'];
 		$code=$data['code'];
-    $faculty=$data['faculty'];
+    $floor=$data['floor'];
+    $description=$data['description'];
+    $building=$data['building'];
 
-		$link="department_func.php?&ops=2";
+		$link="room_func.php?&ops=2";
 	}
 	else
 	{
-		$text=$textAdd." ".$textDepartment;
+		$text=$textAdd." ".$textRoom;
 		$id=null;
 		$name=null;
 		$code=null;
-		$faculty=null;
+    $floor=null;
+    $description=null;
+    $building=null;
 
-		$link="department_func.php?&ops=1";
+		$link="room_func.php?&ops=1";
 	}
 
 ?>
@@ -58,42 +62,55 @@
 					<div class="x_content">
 					<br />
 						<!-- FORM -->
-						<form name="departmentForm" method="post"
+						<form name="roomForm" method="post"
 							action="<?php echo $link?>" enctype="multipart/form-data"
 								class="form-horizontal form-label-left">
 
 								<!-- hidden textfield for id -->
 								<input type="hidden" name="id" value="<?php echo $id;?>">
 
-								<!-- Create dynamic listbox -->
+                <!-- Create dynamic listbox -->
                 <div class="form-group">
                   <label class="control-label col-md-2 col-sm-3 col-xs-12">
-                    <?php echo $formFaculty;?></label>
+                    <?php echo $formBuilding;?>
+                  </label>
                   <div class="col-md-3 col-sm-9 col-xs-12">
-                    <select name="faculty" id="listBox" class="form-control">
+                    <select name="building" id="listBox" class="form-control">
                       <?php
                         include_once("connection.php");
-                        $qry="SELECT id,code,name FROM faculty ORDER BY code";
+                        $qry="SELECT id,name FROM building ORDER BY name";
                         $sql=mysqli_query($con,$qry);
                         while($data=mysqli_fetch_array($sql,MYSQLI_ASSOC))
                         { //begin populate list ?>
-                          <option value=<?php echo $data['id']; ?>
-														<?php if($data['id']==$faculty)
-														{?>selected="selected"<?php } ?>>
-                            <?php echo $data['code']." - ".$data['name'];?>
+                          <option value=<?php echo $data['id'];?>
+                          <?php
+                            //make listbox default to record's faculty
+                            if($data['id']==$building)
+                            {?>selected="selected"<?php } ?>>
+                            <?php echo $data['name'];?>
                           </option>
                       <?php } //end populate list ?>
                     </select>
                   </div>
                 </div>
 
+                <div class="form-group">
+                  <label class="control-label col-md-2 col-sm-3 col-xs-12">
+                    <?php echo $formFloor;?> <span class="required">*</span>
+                  </label>
+                  <div class="col-md-9 col-sm-9 col-xs-12">
+                    <input type="text" name="floor" class="form-control"
+                    required value="<?php echo $floor;?>">
+                  </div>
+                </div>
+
 								<div class="form-group">
 									<label class="control-label col-md-2 col-sm-3 col-xs-12">
-										<?php echo $formCode;?> <span class="required">*</span>
+										<?php echo $formCode;?>
 									</label>
 									<div class="col-md-9 col-sm-9 col-xs-12">
 										<input type="text" name="code" class="form-control"
-										required value="<?php echo $code;?>">
+										value="<?php echo $code;?>">
 									</div>
 								</div>
 
@@ -107,9 +124,19 @@
 									</div>
 								</div>
 
+                <div class="form-group">
+                  <label class="control-label col-md-2 col-sm-3 col-xs-12">
+                    <?php echo $formDescription;?>
+                  </label>
+                  <div class="col-md-9 col-sm-9 col-xs-12">
+                    <textarea type="text" name="description"
+                    class="form-control"><?php echo $description;?></textarea>
+                  </div>
+                </div>
+
 								<div class="form-group">
 										<div class="col-md-6 col-sm-9 col-xs-12 col-md-offset-2">
-												<a href="department.php">
+												<a href="room.php">
 														<button type="button" class="btn btn-danger">
 														<i class="fa fa-reply"></i>
 																<?php echo $textCancel;?></button></a>

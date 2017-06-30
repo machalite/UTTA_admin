@@ -1,5 +1,5 @@
 <?php
-  //displays department data for administration
+  //displays room data for administration
 
 	//display header
 	include_once ("header.php");
@@ -14,7 +14,7 @@
     <div class="">
       <div class="page-title">
         <div class="title_left">
-          <h3><?php echo $departmentTitle;?></h3>
+          <h3><?php echo $roomTitle;?></h3>
         </div>
       </div>
     </div>
@@ -23,20 +23,22 @@
     <div class="col-md-12 col-sm-12 col-xs-12 responsive">
       <div class="x_panel">
         <div class="x_title">
-          <a href="department_form.php">
+          <a href="room_form.php">
 						<!-- displays add button -->
             <button type="button" class="btn btn-success">
               <i class="fa fa-plus"></i>
-							<?php echo (" ".$textAdd." ".$textDepartment);?></button>
+							<?php echo (" ".$textAdd." ".$textRoom);?></button>
           </a>
         </div>
         <div class="x_content">
           <table id="datatable" class="table table-striped table-bordered">
             <thead>
               <tr>
-								<th><?php echo $tableFaculty;?></th>
+								<th><?php echo $tableBuilding;?></th>
+                <th><?php echo $tableFloor;?></th>
                 <th><?php echo $tableCode;?></th>
                 <th><?php echo $tableName;?></th>
+                <th><?php echo $tableDescription;?></th>
 								<th><?php echo $tableActive;?></th>
                 <th><?php echo $tableAction;?></th>
               </tr>
@@ -44,16 +46,19 @@
             <tbody>
               <?php
 							//populate table with data from database
-							$strDisp="SELECT d.id,d.code,d.name,d.active,f.name AS faculty
-								FROM department d, faculty f WHERE d.faculty=f.id ORDER BY id";
+							$strDisp="SELECT r.id,r.code,r.name,r.floor,
+                r.description, r.active,b.name AS building
+                  FROM room r, building b WHERE r.building=b.id ORDER BY id";
 
 							$sql=mysqli_query($con,$strDisp);
 							while($data=mysqli_fetch_array($sql,MYSQLI_ASSOC))
 							{//begin populate table ?>
 								<tr>
-									<td><?php echo $data['faculty'];?></td>
+									<td><?php echo $data['building'];?></td>
+                  <td><?php echo $data['floor'];?></td>
 									<td><?php echo $data['code'];?></td>
 									<td><?php echo $data['name'];?></td>
+                  <td><?php echo $data['description'];?></td>
 									<td>
 										<input type="checkbox" name="active" disabled
 										<?php if($data['active']==1){?>checked<?php } ?>>
@@ -62,13 +67,13 @@
 									<!-- generate action buttons -->
 									<td width="160">
 										<!-- update button -->
-										<a href="department_form.php?&id=<?php echo $data['id']; ?>
+										<a href="room_form.php?&id=<?php echo $data['id']; ?>
 											&ops=2">
 											<button type="button" class="btn btn-primary">
 												<i class="fa fa-pencil"></i></button>
 										</a>
 										<!-- deactivate button -->
-										<a href="department_func.php?&id=<?php echo $data['id']; ?>
+										<a href="room_func.php?&id=<?php echo $data['id']; ?>
 											&name=<?php echo $data['name']; ?>
 											&active=<?php echo $data['active']; ?>&ops=4">
 											<button type="button" class="btn btn-secondary">
@@ -79,7 +84,7 @@
 										<!-- delete button -->
 										<!-- Uncomment if you want user be able to
 										permanently delete record -->
-										<!-- <a href="department_func.php?&id=<?php //echo $data['id']; ?>
+										<!-- <a href="room_func.php?&id=<?php //echo $data['id']; ?>
 											&name=<?php //echo $data['name']; ?>&ops=3"
 											onClick="return confirm('<?php //echo $msgDel;?>')">
 											<button type="button" class="btn btn-danger">

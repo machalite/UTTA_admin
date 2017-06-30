@@ -1,7 +1,7 @@
 CREATE TABLE faculty
 (
 	id int AUTO_INCREMENT NOT NULL,
-  code varchar(10) UNIQUE,
+  code varchar(10),
   name varchar(50) NOT NULL,
 	active boolean DEFAULT 1,
   PRIMARY KEY (id)
@@ -10,7 +10,7 @@ CREATE TABLE faculty
 CREATE TABLE department
 (
 	id int AUTO_INCREMENT NOT NULL,
-  code varchar(10) UNIQUE,
+  code varchar(10),
   name varchar(50) NOT NULL,
   faculty int,
 	active boolean DEFAULT 1,
@@ -21,7 +21,7 @@ CREATE TABLE department
 CREATE TABLE lecturer
 (
 	id int AUTO_INCREMENT NOT NULL,
-  code varchar(20) UNIQUE,
+  code varchar(20),
   name varchar(50) NOT NULL,
 	active boolean DEFAULT 1,
 	PRIMARY KEY(id)
@@ -30,7 +30,7 @@ CREATE TABLE lecturer
 CREATE TABLE student
 (
 	id int AUTO_INCREMENT NOT NULL,
-  code varchar(20) UNIQUE,
+  code varchar(20),
   name varchar(50) NOT NULL,
   faculty int,
   department int,
@@ -52,10 +52,10 @@ CREATE TABLE building
 CREATE TABLE room
 (
 	id int AUTO_INCREMENT NOT NULL,
-  code varchar(10) UNIQUE,
+  code varchar(10),
   name varchar(50) NOT NULL,
   building int,
-  floor int,
+  floor varchar(5),
 	description text,
 	active boolean DEFAULT 1,
 	PRIMARY KEY(id),
@@ -75,7 +75,7 @@ CREATE TABLE year
 CREATE TABLE course
 (
 	id int AUTO_INCREMENT NOT NULL,
-  code varchar(20) UNIQUE,
+  code varchar(20),
   name varchar(50) NOT NULL,
   faculty int,
   department int,
