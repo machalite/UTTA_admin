@@ -123,7 +123,7 @@ CREATE TABLE activitylog
 	FOREIGN KEY(user) REFERENCES user(id)
 );
 
-CREATE TABLE holiday
+CREATE TABLE offClass
 (
 	id int AUTO_INCREMENT NOT NULL,
 	class int,

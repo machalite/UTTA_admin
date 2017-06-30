@@ -35,6 +35,8 @@
   $sidebarClass                       ="Class";
   $sidebarLecturer                    ="Lecturer";
   $sidebarUser                        ="User";
+  $sidebarStudent                     ="Student";
+  $sidebarOffClass                    ="Reschedule / Cancel Class";
   $sidebarActivityLog                 ="Activity logs";
 
   //footer.php
@@ -70,20 +72,13 @@
   $formFaculty                        ="Faculty";
   $formFloor                          ="Floor";
 
-  //faculty.php
-  $facultyTitle                       ="Faculties";
-
-  //department.php
-  $departmentTitle                    ="Departments";
-
-  //building.php
-  $buildingTitle                      ="Buildings";
-
-  //building.php
-  $roomTitle                          ="Rooms";
-
-  //room.php
-  $departmentTitle                    ="Departments";
+  //Page Titles
+  $facultyTitle                       ="Manage Faculties";
+  $departmentTitle                    ="Manage Departments";
+  $buildingTitle                      ="Manage Buildings";
+  $roomTitle                          ="Manage Rooms";
+  $departmentTitle                    ="Manage Departments";
+  $lecturerTitle                      ="Manage Lecturers";
 
   //activity_log.php
   $actLogTitle                        ="User activities";
@@ -116,6 +111,7 @@
   $textCancel                         ="Cancel";
   $textSubmit                         ="Submit";
   $textReset                          ="Reset";
+
   //messages
   $msgDel                             ="Proceed delete ?";
   $msgDelSucceed                      ="Deleted succesfully";

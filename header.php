@@ -71,15 +71,7 @@
   							<h3><?php echo $sidebarMenu;?></h3>
   							<ul class="nav side-menu">
 
-                  <li>
-                    <a href="user.php"><i class="fa fa-users"></i>
-                      <?php echo $sidebarUser;?> </a>
-                  </li>
-
-                  <li>
-                    <a href="activity_log.php"><i class="fa fa-bar-chart "></i>
-                      <?php echo $sidebarActivityLog?> </a>
-                  </li>
+                  <hr>
 
   								<li>
   									<a href="faculty.php"><i class="fa fa-university"></i>
@@ -92,29 +84,56 @@
   								</li>
 
   								<li>
-  									<a href="building.php"><i class="fa fa-building"></i>
-                      <?php echo $sidebarBuilding;?> </a>
-  								</li>
-
-  								<li>
   									<a href="course.php"><i class="fa fa-book"></i>
                       <?php echo $sidebarCourse;?> </a>
   								</li>
 
                   <li>
-                    <a href="class.php"><i class="fa fa-pencil"></i>
+                    <a href="class.php"><i class="fa fa-calendar"></i>
                       <?php echo $sidebarClass;?> </a>
                   </li>
 
                   <li>
-                    <a href="lecturer.php"><i class="fa  fa-male"></i>
+                    <a href="offClass.php"><i class="fa fa-thumb-tack"></i>
+                      <?php echo $sidebarOffClass;?> </a>
+                  </li>
+
+                  <hr>
+
+                  <li>
+                    <a href="student.php"><i class="fa  fa-male"></i>
+                      <?php echo $sidebarStudent;?> </a>
+                  </li>
+
+                  <li>
+                    <a href="lecturer.php"><i class="fa  fa-suitcase"></i>
                       <?php echo $sidebarLecturer;?> </a>
+                  </li>
+
+                  <hr>
+
+                  <li>
+                    <a href="building.php"><i class="fa fa-building"></i>
+                      <?php echo $sidebarBuilding;?> </a>
                   </li>
 
                   <li>
                     <a href="room.php"><i class="fa fa-check-square "></i>
                       <?php echo $sidebarRoom?> </a>
                   </li>
+
+                  <hr>
+
+                  <li>
+                    <a href="user.php"><i class="fa fa-user"></i>
+                      <?php echo $sidebarUser;?> </a>
+                  </li>
+
+                  <li>
+                    <a href="activity_log.php"><i class="fa fa-list-ul "></i>
+                      <?php echo $sidebarActivityLog?> </a>
+                  </li>
+
   							</ul>
   						</div>
   					</div>
