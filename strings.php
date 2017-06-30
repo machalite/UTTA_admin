@@ -42,9 +42,6 @@
   //footer.php
   $footerText                         ="Created by Jonathan Huang 2017";
 
-  //user.php
-  $userTitle                          ="User administration";
-
   //general table strings
   $tableUsername                      ="Username";
   $tableLastLogin                     ="Last Login";
@@ -57,6 +54,8 @@
   $tableFaculty                       ="Faculty";
   $tableBuilding                      ="Building";
   $tableFloor                         ="Floor number";
+  $tableDepartment                    ="Department";
+
 
   //General forms
   $formUsername                       ="Username";
@@ -70,15 +69,18 @@
   $formDescription                    ="Description";
   $formBuilding                       ="Building";
   $formFaculty                        ="Faculty";
+  $formDepartment                     ="Department";
   $formFloor                          ="Floor";
 
   //Page Titles
+  $userTitle                          ="User administration";
   $facultyTitle                       ="Manage Faculties";
   $departmentTitle                    ="Manage Departments";
   $buildingTitle                      ="Manage Buildings";
   $roomTitle                          ="Manage Rooms";
   $departmentTitle                    ="Manage Departments";
   $lecturerTitle                      ="Manage Lecturers";
+  $studentTitle                       ="Manage Students";
 
   //activity_log.php
   $actLogTitle                        ="User activities";
@@ -107,6 +109,7 @@
   $textRoom                           ="ROOM";
   $textClass                          ="CLASS";
   $textLecturer                       ="LECTURER";
+  $textStudent                        ="STUDENT";
   $textUser                           ="USER";
   $textCancel                         ="Cancel";
   $textSubmit                         ="Submit";

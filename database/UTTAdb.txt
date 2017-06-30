@@ -32,11 +32,9 @@ CREATE TABLE student
 	id int AUTO_INCREMENT NOT NULL,
   code varchar(20),
   name varchar(50) NOT NULL,
-  faculty int,
   department int,
 	active boolean DEFAULT 1,
 	PRIMARY KEY(id),
-  FOREIGN KEY(faculty) REFERENCES faculty(id),
   FOREIGN KEY(department) REFERENCES department(id)
 );
 

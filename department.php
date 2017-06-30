@@ -45,7 +45,7 @@
               <?php
 							//populate table with data from database
 							$strDisp="SELECT d.id,d.code,d.name,d.active,f.name AS faculty
-								FROM department d, faculty f WHERE d.faculty=f.id ORDER BY id";
+								FROM department d, faculty f WHERE d.faculty=f.id ORDER BY d.id";
 
 							$sql=mysqli_query($con,$strDisp);
 							while($data=mysqli_fetch_array($sql,MYSQLI_ASSOC))
