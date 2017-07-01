@@ -31,6 +31,7 @@
   $sidebarFaculty                     ="Faculty";
   $sidebarBuilding                    ="Building";
   $sidebarCourse                      ="Course";
+  $sidebarYear                        ="School Year";
   $sidebarRoom                        ="Room";
   $sidebarClass                       ="Class";
   $sidebarLecturer                    ="Lecturer";
@@ -55,6 +56,7 @@
   $tableBuilding                      ="Building";
   $tableFloor                         ="Floor number";
   $tableDepartment                    ="Department";
+  $tableLecturer                      ="Lecturer";
 
 
   //General forms
@@ -70,6 +72,7 @@
   $formBuilding                       ="Building";
   $formFaculty                        ="Faculty";
   $formDepartment                     ="Department";
+  $formLecturer                       ="Lecturer";
   $formFloor                          ="Floor";
 
   //Page Titles
@@ -81,6 +84,7 @@
   $departmentTitle                    ="Manage Departments";
   $lecturerTitle                      ="Manage Lecturers";
   $studentTitle                       ="Manage Students";
+  $courseTitle                        ="Manage Courses";
 
   //activity_log.php
   $actLogTitle                        ="User activities";

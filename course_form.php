@@ -12,34 +12,32 @@
 		include_once("connection.php");
 
 		//display update form title
-		$text=$textUpdate." ".$textRoom;
+		$text=$textUpdate." ".$textCourse;
 
 		// attempt select query execution
-		$sql=mysqli_query($con,"SELECT id,code,name,building,description,floor
-			FROM room WHERE id='$_GET[id]'");
+		$sql=mysqli_query($con,"SELECT id,lecturer,code,name,department
+			FROM course WHERE id='$_GET[id]'");
 		$data=mysqli_fetch_array($sql,MYSQLI_ASSOC);
 
 		//fill variable with data from database to show in textfield
 		$id=$data['id'];
 		$name=$data['name'];
 		$code=$data['code'];
-    $floor=$data['floor'];
-    $description=$data['description'];
-    $building=$data['building'];
+    $department=$data['department'];
+		$lecturer=$data['lecturer'];
 
-		$link="room_func.php?&ops=2";
+		$link="course_func.php?&ops=2";
 	}
 	else
 	{
-		$text=$textAdd." ".$textRoom;
+		$text=$textAdd." ".$textCourse;
 		$id=null;
 		$name=null;
 		$code=null;
-    $floor=null;
-    $description=null;
-    $building=null;
+    $department=null;
+		$lecturer=null;
 
-		$link="room_func.php?&ops=1";
+		$link="course_func.php?&ops=1";
 	}
 
 ?>
@@ -62,7 +60,7 @@
 					<div class="x_content">
 					<br />
 						<!-- FORM -->
-						<form name="roomForm" method="post"
+						<form name="courseForm" method="post"
 							action="<?php echo $link?>" enctype="multipart/form-data"
 								class="form-horizontal form-label-left">
 
@@ -72,43 +70,57 @@
                 <!-- Create dynamic listbox -->
                 <div class="form-group">
                   <label class="control-label col-md-2 col-sm-3 col-xs-12">
-                    <?php echo $formBuilding;?>
-                  </label>
-                  <div class="col-md-3 col-sm-9 col-xs-12">
-                    <select name="building" id="listBox" class="form-control">
+                    <?php echo $formDepartment;?></label>
+                  <div class="col-md-5 col-sm-9 col-xs-12">
+                    <select name="department" id="listBox" class="form-control">
                       <?php
                         include_once("connection.php");
-                        $qry="SELECT id,name FROM building ORDER BY name";
+                        $qry="SELECT d.id, d.name, f.name AS faculty
+                        FROM department d, faculty f
+                        WHERE d.faculty=f.id
+                        ORDER BY f.name";
                         $sql=mysqli_query($con,$qry);
                         while($data=mysqli_fetch_array($sql,MYSQLI_ASSOC))
                         { //begin populate list ?>
-                          <option value=<?php echo $data['id'];?>
-                          <?php
-                            //make listbox default to record's faculty
-                            if($data['id']==$building)
-                            {?>selected="selected"<?php } ?>>
-                            <?php echo $data['name'];?>
+                          <option value=<?php echo $data['id']; ?>
+														<?php if($data['id']==$department)
+														{?>selected="selected"<?php } ?>>
+                            <?php echo $data['faculty']." - ".$data['name'];?>
                           </option>
                       <?php } //end populate list ?>
                     </select>
                   </div>
-
-									<label class="control-label col-md-1 col-sm-3 col-xs-12">
-										<?php echo $formFloor;?> <span class="required">*</span>
-									</label>
-									<div class="col-md-1 col-sm-9 col-xs-12">
-										<input type="text" name="floor" class="form-control"
-										required value="<?php echo $floor;?>">
-									</div>
                 </div>
+
+                <!-- Create dynamic listbox -->
+								<div class="form-group">
+									<label class="control-label col-md-2 col-sm-3 col-xs-12">
+										<?php echo $formLecturer;?></label>
+									<div class="col-md-5 col-sm-9 col-xs-12">
+										<select name="lecturer" id="listBox" class="form-control">
+											<?php
+												include_once("connection.php");
+												$qry="SELECT id, name, code FROM lecturer ORDER BY name";
+												$sql=mysqli_query($con,$qry);
+												while($data=mysqli_fetch_array($sql,MYSQLI_ASSOC))
+												{ //begin populate list ?>
+													<option value=<?php echo $data['id']; ?>
+														<?php if($data['id']==$lecturer)
+														{?>selected="selected"<?php } ?>>
+														<?php echo $data['code']." - ".$data['name'];?>
+													</option>
+											<?php } //end populate list ?>
+										</select>
+									</div>
+								</div>
 
 								<div class="form-group">
 									<label class="control-label col-md-2 col-sm-3 col-xs-12">
-										<?php echo $formCode;?>
+										<?php echo $formCode;?> <span class="required">*</span>
 									</label>
 									<div class="col-md-9 col-sm-9 col-xs-12">
 										<input type="text" name="code" class="form-control"
-										value="<?php echo $code;?>">
+										required value="<?php echo $code;?>">
 									</div>
 								</div>
 
@@ -122,19 +134,9 @@
 									</div>
 								</div>
 
-                <div class="form-group">
-                  <label class="control-label col-md-2 col-sm-3 col-xs-12">
-                    <?php echo $formDescription;?>
-                  </label>
-                  <div class="col-md-9 col-sm-9 col-xs-12">
-                    <textarea type="text" name="description"
-                    class="form-control"><?php echo $description;?></textarea>
-                  </div>
-                </div>
-
 								<div class="form-group">
 										<div class="col-md-6 col-sm-9 col-xs-12 col-md-offset-2">
-												<a href="room.php">
+												<a href="course.php">
 														<button type="button" class="btn btn-danger">
 														<i class="fa fa-reply"></i>
 																<?php echo $textCancel;?></button></a>

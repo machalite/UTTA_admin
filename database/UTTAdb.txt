@@ -75,16 +75,12 @@ CREATE TABLE course
 	id int AUTO_INCREMENT NOT NULL,
   code varchar(20),
   name varchar(50) NOT NULL,
-  faculty int,
   department int,
   lecturer int,
-  year int,
 	active boolean DEFAULT 1,
 	PRIMARY KEY(id),
-  FOREIGN KEY(faculty) REFERENCES faculty(id),
   FOREIGN KEY(department) REFERENCES department(id),
-  FOREIGN KEY(lecturer) REFERENCES lecturer(id),
-	FOREIGN KEY(year) REFERENCES year(id)
+  FOREIGN KEY(lecturer) REFERENCES lecturer(id)
 );
 
 CREATE TABLE class

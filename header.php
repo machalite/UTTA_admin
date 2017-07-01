@@ -89,6 +89,11 @@
   								</li>
 
                   <li>
+                    <a href="year.php"><i class="fa fa-pencil"></i>
+                      <?php echo $sidebarYear;?> </a>
+                  </li>
+
+                  <li>
                     <a href="class.php"><i class="fa fa-calendar"></i>
                       <?php echo $sidebarClass;?> </a>
                   </li>
