@@ -77,7 +77,7 @@
                         include_once("connection.php");
                         $qry="SELECT d.id, d.name, f.name AS faculty
                         FROM department d, faculty f
-                        WHERE d.faculty=f.id
+                        WHERE d.faculty=f.id AND d.active=1
                         ORDER BY f.name";
                         $sql=mysqli_query($con,$qry);
                         while($data=mysqli_fetch_array($sql,MYSQLI_ASSOC))
@@ -100,7 +100,8 @@
 										<select name="lecturer" id="listBox" class="form-control">
 											<?php
 												include_once("connection.php");
-												$qry="SELECT id, name, code FROM lecturer ORDER BY name";
+												$qry="SELECT id, name, code FROM lecturer
+												WHERE active=1 ORDER BY name";
 												$sql=mysqli_query($con,$qry);
 												while($data=mysqli_fetch_array($sql,MYSQLI_ASSOC))
 												{ //begin populate list ?>

@@ -78,7 +78,8 @@
                     <select name="building" id="listBox" class="form-control">
                       <?php
                         include_once("connection.php");
-                        $qry="SELECT id,name FROM building ORDER BY name";
+                        $qry="SELECT id,name FROM building
+													WHERE active=1 ORDER BY name";
                         $sql=mysqli_query($con,$qry);
                         while($data=mysqli_fetch_array($sql,MYSQLI_ASSOC))
                         { //begin populate list ?>

@@ -30,8 +30,8 @@
 	{
 		$text=$textAdd." ".$textBuilding;
 		$id=null;
-		$name="";
-		$description="";
+		$name=null;
+		$description=null;
 
 		$link="building_func.php?&ops=1";
 	}

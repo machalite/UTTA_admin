@@ -57,6 +57,8 @@
   $tableFloor                         ="Floor number";
   $tableDepartment                    ="Department";
   $tableLecturer                      ="Lecturer";
+  $tableStartDate                     ="Start Date";
+  $tableEndDate                       ="End Date";
 
 
   //General forms
@@ -74,6 +76,8 @@
   $formDepartment                     ="Department";
   $formLecturer                       ="Lecturer";
   $formFloor                          ="Floor";
+  $formStartDate                     ="Start Date";
+  $formEndDate                       ="End Date";
 
   //Page Titles
   $userTitle                          ="User administration";
@@ -85,6 +89,7 @@
   $lecturerTitle                      ="Manage Lecturers";
   $studentTitle                       ="Manage Students";
   $courseTitle                        ="Manage Courses";
+  $yearTitle                          ="Manage School Year";
 
   //activity_log.php
   $actLogTitle                        ="User activities";
@@ -110,6 +115,7 @@
   $textFaculty                        ="FACULTY";
   $textBuilding                       ="BUILDING";
   $textCourse                         ="COURSE";
+  $textYear                           ="YEAR";
   $textRoom                           ="ROOM";
   $textClass                          ="CLASS";
   $textLecturer                       ="LECTURER";
