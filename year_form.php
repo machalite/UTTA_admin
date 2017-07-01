@@ -15,15 +15,15 @@
 		$text=$textUpdate." ".$textYear;
 
 		// attempt select query execution
-		$sql=mysqli_query($con,"SELECT id,description,name
+		$sql=mysqli_query($con,"SELECT id,name,startdate,enddate
 			FROM year WHERE id='$_GET[id]'");
 		$data=mysqli_fetch_array($sql,MYSQLI_ASSOC);
 
 		//fill variable with data from database to show in textfield
 		$id=$data['id'];
 		$name=$data['name'];
-		$startDate=$data['startDate'];
-    $endDate=$data['endDate'];
+		$startDate=$data['startdate'];
+    $endDate=$data['enddate'];
 
 		$link="year_func.php?&ops=2";
 	}
@@ -79,7 +79,7 @@
 									<label class="control-label col-md-2 col-sm-3 col-xs-12">
 										<?php echo $formStartDate;?></label>
 									<div class="col-md-9 col-sm-9 col-xs-12">
-										<input type="date" name="startDate">
+										<input type="date" name="startDate" value="<?php echo $startDate?>">
 									</div>
 								</div>
 
@@ -87,7 +87,7 @@
                   <label class="control-label col-md-2 col-sm-3 col-xs-12">
                     <?php echo $formEndDate;?></label>
                   <div class="col-md-9 col-sm-9 col-xs-12">
-                    <input type="date" name="endDate">
+                    <input type="date" name="endDate" value="<?php echo $endDate?>">
                   </div>
                 </div>
 

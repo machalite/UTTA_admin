@@ -37,11 +37,14 @@
   	<!-- Custom Theme Style -->
   	<link href="css/custom.css" rel="stylesheet">
   	<!-- Datatables -->
-      <link href="css/dataTables.bootstrap.min.css" rel="stylesheet">
-      <link href="css/buttons.bootstrap.min.css" rel="stylesheet">
-      <link href="css/fixedHeader.bootstrap.min.css" rel="stylesheet">
-      <link href="css/responsive.bootstrap.min.css" rel="stylesheet">
-      <link href="css/scroller.bootstrap.min.css" rel="stylesheet">
+    <link href="css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="css/buttons.bootstrap.min.css" rel="stylesheet">
+    <link href="css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+    <link href="css/responsive.bootstrap.min.css" rel="stylesheet">
+    <link href="css/scroller.bootstrap.min.css" rel="stylesheet">
+    <link type="text/css" href="css/bootstrap.min.css" />
+    <link type="text/css" href="css/bootstrap-timepicker.min.css" />
+
   	<!-- END OF CSS -->
 
     <!-- displays favicon -->

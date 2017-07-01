@@ -51,7 +51,7 @@
       $id = mysqli_real_escape_string($con, $_POST['id']);
       $name = mysqli_real_escape_string($con, $_POST['name']);
       $startDate = mysqli_real_escape_string($con, $_POST['startDate']);
-      $endDate = mysqli_real_escape_string($con, $_POST['startDate']);
+      $endDate = mysqli_real_escape_string($con, $_POST['endDate']);
 
       //attempt update query execution
       $sql = "UPDATE year SET name='$name', startdate='$startDate',

@@ -59,6 +59,10 @@
   $tableLecturer                      ="Lecturer";
   $tableStartDate                     ="Start Date";
   $tableEndDate                       ="End Date";
+  $tableStartTime                     ="Starts at";
+  $tableEndTime                       ="End";
+  $tableDay                           ="day";
+  $tableYear                          ="School Year";
 
 
   //General forms
@@ -76,8 +80,14 @@
   $formDepartment                     ="Department";
   $formLecturer                       ="Lecturer";
   $formFloor                          ="Floor";
-  $formStartDate                     ="Start Date";
-  $formEndDate                       ="End Date";
+  $formStartDate                      ="Start Date";
+  $formEndDate                        ="End Date";
+  $formStartClass                     ="Start";
+  $formEndClass                       ="End";
+  $formDay                            ="Day";
+  $formYear                           ="Year";
+  $formCourse                         ="Course";
+  $formRoom                           ="Room";
 
   //Page Titles
   $userTitle                          ="User administration";
@@ -90,6 +100,7 @@
   $studentTitle                       ="Manage Students";
   $courseTitle                        ="Manage Courses";
   $yearTitle                          ="Manage School Year";
+  $classTitle                         ="Manage Classes";
 
   //activity_log.php
   $actLogTitle                        ="User activities";
@@ -142,4 +153,12 @@
   $msgWithId                          =" with ID: ";
   $msgWithName                        =", NAME: ";
 
+  //days
+  $dayMon                             ="Monday";
+  $dayTue                             ="Tuesday";
+  $dayWed                             ="Wednesday";
+  $dayThu                             ="Thursday";
+  $dayFri                             ="Friday";
+  $daySat                             ="Saturday";
+  $daySun                             ="Sunday";
 ?>

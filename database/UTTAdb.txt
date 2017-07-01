@@ -89,10 +89,12 @@ CREATE TABLE class
   day int NOT NULL,
   startclass time NOT NULL,
 	endclass time NOT NULL,
+	year int,
   course int,
   room int,
 	active boolean DEFAULT 1,
 	PRIMARY KEY(id),
+	FOREIGN KEY(year) REFERENCES year(id)
   FOREIGN KEY(course) REFERENCES course(id),
   FOREIGN KEY(room) REFERENCES room(id)
 );

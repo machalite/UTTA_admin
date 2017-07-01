@@ -16,6 +16,8 @@
 		  <script src="js/fastclick.js"></script>
 		  <!-- NProgress -->
 		  <script src="js/nprogress.js"></script>
+			<!-- Timepicker -->
+			<script src="js/bootstrap-timepicker.min.js"></script>
 		  <!-- Datatables -->
 		  <script src="js/jquery.dataTables.min.js"></script>
 		  <script src="js/dataTables.bootstrap.min.js"></script>
