@@ -34,11 +34,12 @@
           <table id="datatable" class="table table-striped table-bordered">
             <thead>
               <tr>
-                <th><?php echo $tableDepartment;?></th>
+                <th><?php echo $tableCourse;?></th>
                 <th><?php echo $tableYear;?></th>
                 <th><?php echo $tableDay;?></th>
-                <th><?php echo $tableStartTime;?></th>
-                <th><?php echo $tableEndTime;?></th>
+                <th><?php echo $tableRoom;?></th>
+                <th><?php echo $tableStartClass;?></th>
+                <th><?php echo $tableEndClass;?></th>
 								<th><?php echo $tableActive;?></th>
                 <th><?php echo $tableAction;?></th>
               </tr>
@@ -57,7 +58,21 @@
 								<tr>
                   <td><?php echo $data['course'];?></td>
                   <td><?php echo $data['year'];?></td>
-									<td><?php echo $data['day'];?></td>
+									<td>
+										<?php
+										switch ($data['day'])
+										{
+											case 1:echo $dayMon;break;
+											case 2:echo $dayTue;break;
+											case 3:echo $dayWed;break;
+											case 4:echo $dayThu;break;
+											case 5:echo $dayFri;break;
+											case 6:echo $daySat;break;
+											case 7:echo $daySun;break;
+											default:echo $dayNot;
+										}
+										?>
+									</td>
                   <td><?php echo $data['room'];?></td>
                   <td><?php echo $data['startclass'];?></td>
                   <td><?php echo $data['endclass'];?></td>

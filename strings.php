@@ -59,10 +59,12 @@
   $tableLecturer                      ="Lecturer";
   $tableStartDate                     ="Start Date";
   $tableEndDate                       ="End Date";
-  $tableStartTime                     ="Starts at";
-  $tableEndTime                       ="End";
+  $tableStartClass                    ="Starts at";
+  $tableEndClass                      ="End";
   $tableDay                           ="day";
   $tableYear                          ="School Year";
+  $tableCourse                        ="Course";
+  $tableRoom                          ="Room";
 
 
   //General forms
@@ -161,4 +163,5 @@
   $dayFri                             ="Friday";
   $daySat                             ="Saturday";
   $daySun                             ="Sunday";
+  $dayNot                             ="Day not set";
 ?>

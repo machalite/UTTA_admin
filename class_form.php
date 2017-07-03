@@ -6,6 +6,7 @@
 	//fetch strings to display
 	include_once ("strings.php");
 
+  //Added days array for listbox
   $days = array(
      1 => $dayMon,
      2 => $dayTue,
@@ -25,8 +26,8 @@
 		$text=$textUpdate." ".$textClass;
 
 		// attempt select query execution
-		$sql=mysqli_query($con,"SELECT id,description,name
-			FROM class WHERE id='$_GET[id]'");
+		$sql=mysqli_query($con,"SELECT id, day, startclass, endclass,
+      course, room, year FROM class WHERE id='$_GET[id]'");
 		$data=mysqli_fetch_array($sql,MYSQLI_ASSOC);
 
 		//fill variable with data from database to show in textfield
@@ -37,6 +38,9 @@
     $course=$data['course'];
     $room=$data['room'];
     $year=$data['year'];
+
+		//class will use course name for activity log
+		$name=$data['name'];
 
 		$link="class_func.php?&ops=2";
 	}
@@ -159,7 +163,9 @@
   								<div class="col-md-3 col-sm-9 col-xs-12">
   									<select name="day" id="listBox" class="form-control">
   									   <?php foreach($days as $valueDay=>$stringDay){?>
-  									   <option value=<?php echo $valueDay; ?>>
+  									   <option value=<?php echo $valueDay; ?>
+												 <?php if($valueDay==$day)
+												 {?>selected="selected"<?php } ?>>
                          <?php echo $stringDay; ?></option>
   									   <?php } ?>
   									</select>
@@ -171,13 +177,14 @@
 										<?php echo $formStartClass;?> <span class="required">*</span>
 									</label>
 									<div class="col-md-9 col-sm-9 col-xs-12">
-										<input type="time" name="startClass">
+										<input type="time" name="startClass"
+                      value=<?php echo $startClass; ?>>
 									</div>
 								</div>
 
                 <!-- <div class="form-group">
 									<label class="control-label col-md-2 col-sm-3 col-xs-12">
-										<?php echo $formStartClass;?> <span class="required">*</span>
+										<?php //echo $formStartClass;?> <span class="required">*</span>
 									</label>
 									<div class="col-md-9 col-sm-9 col-xs-12">
                     <div class="input-group bootstrap-timepicker timepicker">
@@ -194,7 +201,8 @@
                     <?php echo $formEndClass;?> <span class="required">*</span>
                   </label>
                   <div class="col-md-9 col-sm-9 col-xs-12">
-                    <input type="time" name="endClass">
+                    <input type="time" name="endClass"
+                      value=<?php echo $endClass; ?>>
                   </div>
                 </div>
 
