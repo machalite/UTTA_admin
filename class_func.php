@@ -38,7 +38,7 @@
         $data=mysqli_fetch_array($sql,MYSQLI_ASSOC);
 
         //get course name
-        $qry="SELECT name FROM course WHERE id=$id";
+        $qry="SELECT name FROM course WHERE id=$course";
         $sql=mysqli_query($con,$qry);
         $data=mysqli_fetch_array($sql,MYSQLI_ASSOC);
         $name=$data['name'];
@@ -81,7 +81,7 @@
       else
       {
         //get course name
-        $qry="SELECT name FROM course WHERE id=$id";
+        $qry="SELECT name FROM course WHERE id=$course";
         $sql=mysqli_query($con,$qry);
         $data=mysqli_fetch_array($sql,MYSQLI_ASSOC);
         $name=$data['name'];
@@ -120,7 +120,7 @@
         echo "<center>".$msgDelSucceed."</center><br>";
 
         //get course name
-        $qry="SELECT name FROM course WHERE id=$id";
+        $qry="SELECT name FROM course WHERE id=$course";
         $sql=mysqli_query($con,$qry);
         $data=mysqli_fetch_array($sql,MYSQLI_ASSOC);
         $name=$data['name'];
@@ -171,7 +171,7 @@
       else
       {
         //get course name
-        $qry="SELECT name FROM course WHERE id=$id";
+        $qry="SELECT name FROM course WHERE id=$course";
         $sql=mysqli_query($con,$qry);
         $data=mysqli_fetch_array($sql,MYSQLI_ASSOC);
         $name=$data['name'];
