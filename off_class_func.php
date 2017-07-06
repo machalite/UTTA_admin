@@ -15,16 +15,18 @@
     {
       //get user inputs from the form
       $id = mysqli_real_escape_string($con, $_POST['id']);
-      $day = mysqli_real_escape_string($con, $_POST['day']);
-      $course = mysqli_real_escape_string($con, $_POST['course']);
-      $year = mysqli_real_escape_string($con, $_POST['year']);
+      $date = mysqli_real_escape_string($con, $_POST['date']);
+      $class = mysqli_real_escape_string($con, $_POST['class']);
+      $status = mysqli_real_escape_string($con, $_POST['status']);
+      $description = mysqli_real_escape_string($con, $_POST['description']);
       $room = mysqli_real_escape_string($con, $_POST['room']);
       $startClass = mysqli_real_escape_string($con, $_POST['startClass']);
       $endClass = mysqli_real_escape_string($con, $_POST['endClass']);
 
       //attempt insert query execution
-      $strIns = "INSERT INTO class (day,course,year,room,startclass,
-        endclass)VALUES('$day','$course','$year','$room','$startClass',
+      $strIns = "INSERT INTO offclass (date, class, status, description,
+          room, startclass, endclass)
+        VALUES('$date','$class','$status','$description','$room','$startClass',
         '$endClass')";
 
       if(!mysqli_query($con, $strIns))
@@ -35,7 +37,8 @@
       else
       {
         //get course name
-        $qry="SELECT name FROM course WHERE id=$course";
+        $qry="SELECT cr.name FROM class c, course cr
+        WHERE c.course=cr.id AND id=$class";
         $sql=mysqli_query($con,$qry);
         $data=mysqli_fetch_array($sql,MYSQLI_ASSOC);
         $name=$data['name'];
@@ -52,24 +55,25 @@
       }
       //close connection
       mysqli_close($con);
-      echo "<meta http-equiv='refresh' content='1; url=class.php'>";
+      echo "<meta http-equiv='refresh' content='1; url=off_class.php'>";
     }
     //------------------------------UPDATE--------------------------------------
     elseif ($ops==2)
     {
       //get user inputs from the form
       $id = mysqli_real_escape_string($con, $_POST['id']);
-      $day = mysqli_real_escape_string($con, $_POST['day']);
-      $course = mysqli_real_escape_string($con, $_POST['course']);
-      $year = mysqli_real_escape_string($con, $_POST['year']);
+      $date = mysqli_real_escape_string($con, $_POST['date']);
+      $class = mysqli_real_escape_string($con, $_POST['class']);
+      $status = mysqli_real_escape_string($con, $_POST['status']);
+      $desciption = mysqli_real_escape_string($con, $_POST['description']);
       $room = mysqli_real_escape_string($con, $_POST['room']);
       $startClass = mysqli_real_escape_string($con, $_POST['startClass']);
       $endClass = mysqli_real_escape_string($con, $_POST['endClass']);
 
       //attempt update query execution
-      $sql = "UPDATE class SET day='$day', course='$course',
-        year='$year', room='$room', startclass='$startClass',
-          endclass='$endClass' WHERE id=$id";
+      $sql = "UPDATE offclass SET date='$date', class='$class',
+        status='$status', description='$description',
+        room='$room', startclass='$startClass', endclass='$endClass' WHERE id=$id";
       if(!mysqli_query($con, $sql))
       {
         //display fail message and sql error
@@ -78,7 +82,8 @@
       else
       {
         //get course name
-        $qry="SELECT name FROM course WHERE id=$course";
+        $qry="SELECT cr.name FROM class c, course cr
+        WHERE c.course=cr.id AND id=$class";
         $sql=mysqli_query($con,$qry);
         $data=mysqli_fetch_array($sql,MYSQLI_ASSOC);
         $name=$data['name'];
@@ -96,7 +101,7 @@
       //close connection
       mysqli_close($con);
       //redirect page
-      echo "<meta http-equiv='refresh' content='1; url=class.php'>";
+      echo "<meta http-equiv='refresh' content='1; url=off_class.php'>";
     }
     //--------------------------------DELETE------------------------------------
     elseif ($ops==3)
@@ -106,7 +111,7 @@
       $name=$_GET['name'];
 
       // attempt delete
-      $sql="DELETE FROM class WHERE id='$id'";
+      $sql="DELETE FROM offclass WHERE id='$id'";
 
       if(!mysqli_query($con, $sql))
       {
@@ -117,7 +122,8 @@
         echo "<center>".$msgDelSucceed."</center><br>";
 
         //get course name
-        $qry="SELECT name FROM course WHERE id=$course";
+        $qry="SELECT cr.name FROM class c, course cr
+        WHERE c.course=cr.id AND id=$class";
         $sql=mysqli_query($con,$qry);
         $data=mysqli_fetch_array($sql,MYSQLI_ASSOC);
         $name=$data['name'];
@@ -132,7 +138,7 @@
     	}
       //close connection
       mysqli_close($con);
-      echo "<meta http-equiv='refresh' content='1; url=class.php'>";
+      echo "<meta http-equiv='refresh' content='1; url=off_class.php'>";
     }
     //------------------------------DEACTIVATE----------------------------------
     elseif ($ops==4)
@@ -159,7 +165,7 @@
       }
 
       //attempt update query execution
-      $sql = "UPDATE class SET active=$active WHERE id=$id";
+      $sql = "UPDATE offclass SET active=$active WHERE id=$id";
       if(!mysqli_query($con, $sql))
       {
         //display fail message and sql error
@@ -168,7 +174,8 @@
       else
       {
         //get course name
-        $qry="SELECT name FROM course WHERE id=$course";
+        $qry="SELECT cr.name FROM class c, course cr
+        WHERE c.course=cr.id AND id=$class";
         $sql=mysqli_query($con,$qry);
         $data=mysqli_fetch_array($sql,MYSQLI_ASSOC);
         $name=$data['name'];
@@ -188,7 +195,7 @@
       //close connection
       mysqli_close($con);
       //redirect page
-      echo "<meta http-equiv='refresh' content='1; url=class.php'>";
+      echo "<meta http-equiv='refresh' content='1; url=off_class.php'>";
     }
 
 ?>

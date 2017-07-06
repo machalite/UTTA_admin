@@ -156,6 +156,7 @@
                   </div>
                 </div>
 
+								<!-- Create listbox -->
   							<div class="form-group">
   								<label class="control-label col-md-2 col-sm-3 col-xs-12">
   									<?php echo $formDay?>

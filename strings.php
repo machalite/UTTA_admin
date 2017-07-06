@@ -57,6 +57,8 @@
   $tableFloor                         ="Floor number";
   $tableDepartment                    ="Department";
   $tableLecturer                      ="Lecturer";
+  $tableDate                          ="Date";
+  $tableClass                         ="Class";
   $tableStartDate                     ="Start Date";
   $tableEndDate                       ="End Date";
   $tableStartClass                    ="Starts at";
@@ -65,6 +67,7 @@
   $tableYear                          ="School Year";
   $tableCourse                        ="Course";
   $tableRoom                          ="Room";
+  $tableStatus                        ="Status";
 
 
   //General forms
@@ -82,14 +85,17 @@
   $formDepartment                     ="Department";
   $formLecturer                       ="Lecturer";
   $formFloor                          ="Floor";
+  $formDate                           ="Date";
   $formStartDate                      ="Start Date";
   $formEndDate                        ="End Date";
+  $formClass                          ="Class";
   $formStartClass                     ="Start";
   $formEndClass                       ="End";
   $formDay                            ="Day";
   $formYear                           ="Year";
   $formCourse                         ="Course";
   $formRoom                           ="Room";
+  $formStatus                         ="Status";
 
   //Page Titles
   $userTitle                          ="User administration";
@@ -103,6 +109,7 @@
   $courseTitle                        ="Manage Courses";
   $yearTitle                          ="Manage School Year";
   $classTitle                         ="Manage Classes";
+  $offClassTitle                      ="Alter Class Schedule";
 
   //activity_log.php
   $actLogTitle                        ="User activities";
@@ -130,10 +137,12 @@
   $textCourse                         ="COURSE";
   $textYear                           ="YEAR";
   $textRoom                           ="ROOM";
-  $textClass                          ="CLASS";
+  $textReset                          ="Reset";
   $textLecturer                       ="LECTURER";
   $textStudent                        ="STUDENT";
+  $textClass                          ="CLASS";
   $textUser                           ="USER";
+  $textManage                         ="Manage";
   $textCancel                         ="Cancel";
   $textSubmit                         ="Submit";
   $textReset                          ="Reset";
@@ -164,4 +173,13 @@
   $daySat                             ="Saturday";
   $daySun                             ="Sunday";
   $dayNot                             ="Day not set";
+
+  //off class status
+  $statusCancelled                    ="Cancelled";
+  $statusPostponed                    ="Postponed";
+  $statusRelocated                    ="Relocated";
+  $statusReplacement                  ="Replacement";
+  $statusSupplementary                ="Supplementary";
+  $statusNot                          ="Status not set";
+
 ?>

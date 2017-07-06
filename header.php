@@ -102,7 +102,7 @@
                   </li>
 
                   <li>
-                    <a href="offClass.php"><i class="fa fa-thumb-tack"></i>
+                    <a href="off_class.php"><i class="fa fa-thumb-tack"></i>
                       <?php echo $sidebarOffClass;?> </a>
                   </li>
 

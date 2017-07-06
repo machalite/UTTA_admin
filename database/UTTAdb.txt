@@ -119,12 +119,18 @@ CREATE TABLE activitylog
 	FOREIGN KEY(user) REFERENCES user(id)
 );
 
-CREATE TABLE offClass
+CREATE TABLE offclass
 (
 	id int AUTO_INCREMENT NOT NULL,
 	class int,
+  status int,
+	startclass time,
+	endclass time,
 	description text,
 	date date,
+  room int,
+	active boolean DEFAULT 1,
 	PRIMARY KEY(id),
-	FOREIGN KEY(class) REFERENCES class(id)
+	FOREIGN KEY(class) REFERENCES class(id),
+  FOREIGN KEY(room) REFERENCES room(id)
 );
