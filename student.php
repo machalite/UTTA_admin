@@ -72,6 +72,14 @@
 											<button type="button" class="btn btn-primary">
 												<i class="fa fa-pencil"></i></button>
 										</a>
+
+										<!-- check taken courses button -->
+										<a href="taken_class.php?&id=<?php echo $data['id']; ?>
+											&ops=2">
+											<button type="button" class="btn btn-secondary">
+												Check</button>
+										</a>
+
 										<!-- deactivate button -->
 										<a href="student_func.php?&id=<?php echo $data['id']; ?>
 											&name=<?php echo $data['name']; ?>

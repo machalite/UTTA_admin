@@ -34,6 +34,8 @@ CREATE TABLE student
   name varchar(50) NOT NULL,
   department int,
 	active boolean DEFAULT 1,
+	lineid varchar (50),
+	authcode varchar(50),
 	PRIMARY KEY(id),
   FOREIGN KEY(department) REFERENCES department(id)
 );
@@ -119,6 +121,16 @@ CREATE TABLE activitylog
 	FOREIGN KEY(user) REFERENCES user(id)
 );
 
+CREATE TABLE userlog
+(
+	id int AUTO_INCREMENT NOT NULL,
+	student int,
+	activity varchar(50),
+	timestamp datetime DEFAULT CURRENT_TIMESTAMP,
+	PRIMARY KEY(id),
+	FOREIGN KEY(student) REFERENCES student(id)
+);
+
 CREATE TABLE offclass
 (
 	id int AUTO_INCREMENT NOT NULL,
@@ -133,4 +145,14 @@ CREATE TABLE offclass
 	PRIMARY KEY(id),
 	FOREIGN KEY(class) REFERENCES class(id),
   FOREIGN KEY(room) REFERENCES room(id)
+);
+
+CREATE TABLE takenclass
+(
+	id int AUTO_INCREMENT NOT NULL,
+	class int,
+	student int,
+	PRIMARY KEY(id),
+	FOREIGN KEY(class) REFERENCES class(id),
+  FOREIGN KEY(student) REFERENCES student(id)
 );

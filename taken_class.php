@@ -89,7 +89,6 @@
 											<button type="button" class="btn btn-primary">
 												<i class="fa fa-pencil"></i></button>
 										</a>
-
 										<!-- deactivate button -->
 										<a href="class_func.php?&id=<?php echo $data['id']; ?>
 											&active=<?php echo $data['active']; ?>&ops=4">
