@@ -74,8 +74,7 @@
 										</a>
 
 										<!-- check taken courses button -->
-										<a href="taken_class.php?&id=<?php echo $data['id']; ?>
-											&ops=2">
+										<a href="taken_course.php?&id=<?php echo $data['id']; ?>">
 											<button type="button" class="btn btn-secondary">
 												Check</button>
 										</a>
@@ -87,7 +86,6 @@
 											<button type="button" class="btn btn-secondary">
 												<i class="fa fa-power-off"></i></button>
 										</a>
-
 
 										<!-- delete button -->
 										<!-- Uncomment if you want user be able to

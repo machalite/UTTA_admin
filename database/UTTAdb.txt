@@ -147,12 +147,12 @@ CREATE TABLE offclass
   FOREIGN KEY(room) REFERENCES room(id)
 );
 
-CREATE TABLE takenclass
+CREATE TABLE takencourse
 (
 	id int AUTO_INCREMENT NOT NULL,
-	class int,
+	course int,
 	student int,
 	PRIMARY KEY(id),
-	FOREIGN KEY(class) REFERENCES class(id),
+	FOREIGN KEY(course) REFERENCES course(id),
   FOREIGN KEY(student) REFERENCES student(id)
 );
