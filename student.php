@@ -74,7 +74,9 @@
 										</a>
 
 										<!-- check taken courses button -->
-										<a href="taken_course.php?&id=<?php echo $data['id']; ?>">
+										<a href="taken_course.php?&id=<?php echo $data['id']; ?>
+											&name=<?php echo $data['name']; ?>
+											&code=<?php echo $data['code']; ?>">
 											<button type="button" class="btn btn-secondary">
 												Check</button>
 										</a>

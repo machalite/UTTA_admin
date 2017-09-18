@@ -6,7 +6,11 @@
 	//fetch strings to display
 	include_once ("strings.php");
 	//fetch connection settings
-	include("connection.php");
+	include_once ("connection.php");
+
+	$studentId=$_GET['id'];
+	$studentName=$_GET['name'];
+	$studentCode=$_GET['code'];
 ?>
 
 <!-- PAGE CONTENT -->
@@ -14,7 +18,7 @@
     <div class="">
       <div class="page-title">
         <div class="title_left">
-          <h3><?php echo $classTitle;?></h3>
+          <h3><?php echo $studentName;?></h3>
         </div>
       </div>
     </div>
@@ -23,23 +27,48 @@
     <div class="col-md-12 col-sm-12 col-xs-12 responsive">
       <div class="x_panel">
         <div class="x_title">
-          <a href="class_form.php">
-						<!-- displays add button -->
-            <button type="button" class="btn btn-success">
-              <i class="fa fa-plus"></i>
-							<?php echo (" ".$textAdd." ".$textClass);?></button>
-          </a>
+
+					<!-- FORM -->
+					<form name="takenCourseForm" method="post"
+						action="taken_course_func.php?&ops=1" enctype="multipart/form-data"
+							class="form-horizontal form-label-left">
+
+							<!-- hidden textfield for id -->
+							<input type="hidden" name="student" value="<?php echo $studentId." ".$studentCode;?>">
+
+							<!-- Create dynamic listbox -->
+							<div class="form-group">
+								<label class="control-label col-md-1 col-sm-3 col-xs-12">
+									<?php echo $formCourse;?></label>
+								<div class="col-md-5 col-sm-9 col-xs-12">
+									<select name="course" id="listBox" class="form-control">
+										<?php
+											$qry="SELECT id, name FROM course WHERE active=1
+											ORDER BY name";
+											$sql=mysqli_query($con,$qry);
+											while($data=mysqli_fetch_array($sql,MYSQLI_ASSOC))
+											{ //begin populate list ?>
+												<option value=<?php echo $data['id']; ?>>
+													<?php echo $data['name'];?>
+												</option>
+										<?php } //end populate list ?>
+									</select>
+								</div>
+								<button type="submit" class="btn btn-success">
+									<i class="fa fa-plus"></i>
+									<?php echo (" ".$textAdd." ".$textCourse);?>
+								</button>
+							</div>
+					</form>
         </div>
+
         <div class="x_content">
           <table id="datatable" class="table table-striped table-bordered">
             <thead>
               <tr>
-                <th><?php echo $tableCourse;?></th>
-                <th><?php echo $tableYear;?></th>
-                <th><?php echo $tableDay;?></th>
-                <th><?php echo $tableRoom;?></th>
-                <th><?php echo $tableStartClass;?></th>
-                <th><?php echo $tableEndClass;?></th>
+                <th><?php echo $tableCode;?></th>
+								<th><?php echo $tableCourse;?></th>
+								<th><?php echo $tableLecturer;?></th>
 								<th><?php echo $tableActive;?></th>
                 <th><?php echo $tableAction;?></th>
               </tr>
@@ -47,35 +76,19 @@
             <tbody>
               <?php
 							//populate table with data from database
-							$strDisp="SELECT c.id,c.day,c.startclass,c.endclass,c.active,
-              cr.name AS course, r.name AS room, y.name AS year
-              FROM class c, course cr, year y, room r
-              WHERE c.year=y.id AND c.course=cr.id AND c.room=r.id
-                ORDER BY c.id";
+							$strDisp="SELECT c.code, c.name AS course, l.name AS lecturer,
+								c.active
+							FROM takencourse t, course c, lecturer l
+							WHERE c.id=t.course
+							AND c.lecturer=l.id
+							AND t.student=$studentId";
 							$sql=mysqli_query($con,$strDisp);
 							while($data=mysqli_fetch_array($sql,MYSQLI_ASSOC))
 							{//begin populate table ?>
 								<tr>
+                  <td><?php echo $data['code'];?></td>
                   <td><?php echo $data['course'];?></td>
-                  <td><?php echo $data['year'];?></td>
-									<td>
-										<?php
-										switch ($data['day'])
-										{
-											case 1:echo $dayMon;break;
-											case 2:echo $dayTue;break;
-											case 3:echo $dayWed;break;
-											case 4:echo $dayThu;break;
-											case 5:echo $dayFri;break;
-											case 6:echo $daySat;break;
-											case 7:echo $daySun;break;
-											default:echo $dayNot;
-										}
-										?>
-									</td>
-                  <td><?php echo $data['room'];?></td>
-                  <td><?php echo $data['startclass'];?></td>
-                  <td><?php echo $data['endclass'];?></td>
+                  <td><?php echo $data['lecturer'];?></td>
 									<td>
 										<input type="checkbox" name="active" disabled
 										<?php if($data['active']==1){?>checked<?php } ?>>
@@ -83,30 +96,15 @@
 
 									<!-- generate action buttons -->
 									<td width="160">
-										<!-- update button -->
-										<a href="class_form.php?&id=<?php echo $data['id']; ?>
-											&ops=2">
-											<button type="button" class="btn btn-primary">
-												<i class="fa fa-pencil"></i></button>
-										</a>
-										<!-- deactivate button -->
-										<a href="class_func.php?&id=<?php echo $data['id']; ?>
-											&active=<?php echo $data['active']; ?>&ops=4">
-											<button type="button" class="btn btn-secondary">
-												<i class="fa fa-power-off"></i></button>
-										</a>
-
-
 										<!-- delete button -->
 										<!-- Uncomment if you want user be able to
 										permanently delete record -->
-										<!-- <a href="class_func.php?&id=<?php //echo $data['id']; ?>
-											&name=<?php //echo $data['name']; ?>&ops=3"
-											onClick="return confirm('<?php //echo $msgDel;?>')">
+										<a href="taken_course_func.php?&id=<?php echo $data['id']; ?>
+											&name=<?php echo $data['course']; ?>&ops=3"
+											onClick="return confirm('<?php echo $msgDel;?>')">
 											<button type="button" class="btn btn-danger">
 												<i class="fa fa-trash"></i></button>
-										</a> -->
-
+										</a>
 									</td>
 								</tr>
 							<?php }//end populate table ?>

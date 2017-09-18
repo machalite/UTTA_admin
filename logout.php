@@ -18,11 +18,10 @@
 	mysqli_query($con, $sql);
 
 	//destroy all sessions on log out
-	session_unset();
 	@session_destroy();
-	session_write_close();
+	session_write_close();//End the current session and store session data.
 	setcookie(session_name(),'',0,'/');
-	session_regenerate_id(true);
+	session_regenerate_id(true);//Update the current session id with a newly generated one
 
 	//redirect to login page
 	header("Location: login.php");

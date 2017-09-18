@@ -63,7 +63,7 @@
   $tableEndDate                       ="End Date";
   $tableStartClass                    ="Starts at";
   $tableEndClass                      ="End";
-  $tableDay                           ="day";
+  $tableDay                           ="Day";
   $tableYear                          ="School Year";
   $tableCourse                        ="Course";
   $tableRoom                          ="Room";
@@ -103,13 +103,13 @@
   $departmentTitle                    ="Manage Departments";
   $buildingTitle                      ="Manage Buildings";
   $roomTitle                          ="Manage Rooms";
-  $departmentTitle                    ="Manage Departments";
   $lecturerTitle                      ="Manage Lecturers";
   $studentTitle                       ="Manage Students";
   $courseTitle                        ="Manage Courses";
   $yearTitle                          ="Manage School Year";
   $classTitle                         ="Manage Classes";
   $offClassTitle                      ="Alter Class Schedule";
+  $takenCourseTitle                   ="Manage Taken Courses";
 
   //activity_log.php
   $actLogTitle                        ="User activities";
@@ -125,6 +125,7 @@
   $actUpdated                         ="Updated";
   $actActivated                       ="Activated";
   $actDeActivated                     ="Deactivated";
+  $actAdded                           ="Added";
 
   //general strings
   $textAdd                            ="Add";
@@ -146,6 +147,8 @@
   $textCancel                         ="Cancel";
   $textSubmit                         ="Submit";
   $textReset                          ="Reset";
+  $textOnstudent                      ="on student ID :";
+  $textFor                            ="For";
 
   //messages
   $msgDel                             ="Proceed delete ?";
