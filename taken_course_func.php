@@ -41,37 +41,37 @@
       }
       //close connection
       mysqli_close($con);
-      echo "<meta http-equiv='refresh' content='1; url=taken_course.php?&id=$student'>";
+      echo "<meta http-equiv='refresh' content='1; url=student.php'>";
     }
-    //--------------------------------DELETE------------------------------------
+    //------------------------------DELETE--------------------------------------
     elseif ($ops==3)
     {
-      //get selected record's id and username
+      //get record id and course id
       $id=$_GET['id'];
       $course=$_GET['course'];
 
-      // attempt delete
-      $sql="DELETE FROM takencourse WHERE id='$id'";
+      //attempt DELETE execution
+      $strDel = "DELETE FROM takencourse WHERE id='$id'";
 
-      if(!mysqli_query($con, $sql))
+      if(!mysqli_query($con, $strDel))
       {
-          echo "<center>".$msgDelFail.$sql."</center>" . mysqli_error($con);
+        //displays fail message and sql error
+        echo $msgDelFail. mysqli_error($con);
       }
       else
       {
-        echo "<center>".$msgDelSucceed."</center><br>";
-
+        //concatenate activity description
+        $strAct=$statusCancelled." ".$textCourse." : ".$course;
         //record deletion in activity log
-        //get user id from session
-        $userId=$_SESSION['id'];
-        $strAct=$actDeleted." ".$textCourse.$msgWithId.
-          $id.$msgWithName.$course;
         $sql = "INSERT INTO activitylog (user,activity)
-          VALUES($userId,'$strAct')";
+        VALUES($userId,'$strAct')";
+        //execute SQL statement
         mysqli_query($con, $sql);
-    	}
+        //displays success message
+        echo "<center>".$msgDelSucceed."</center><br>";
+      }
       //close connection
       mysqli_close($con);
-      echo "<meta http-equiv='refresh' content='1; url='taken_course.php'>";
+      echo "<meta http-equiv='refresh' content='1; url=student.php'>";
     }
 ?>

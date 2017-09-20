@@ -76,7 +76,7 @@
             <tbody>
               <?php
 							//populate table with data from database
-							$strDisp="SELECT c.code, c.name AS course, l.name AS lecturer,
+							$strDisp="SELECT t.id, c.code, c.name AS course, l.name AS lecturer,
 								c.active
 							FROM takencourse t, course c, lecturer l
 							WHERE c.id=t.course
@@ -99,8 +99,8 @@
 										<!-- delete button -->
 										<!-- Uncomment if you want user be able to
 										permanently delete record -->
-										<a href="taken_course_func.php?&id=<?php echo $data['id']; ?>
-											&name=<?php echo $data['course']; ?>&ops=3"
+										<a href="taken_course_func.php?&ops=3&id=<?php echo $data['id']; ?>
+											&course=<?php echo $data['course']; ?>"
 											onClick="return confirm('<?php echo $msgDel;?>')">
 											<button type="button" class="btn btn-danger">
 												<i class="fa fa-trash"></i></button>
