@@ -121,7 +121,7 @@ CREATE TABLE activitylog
 	FOREIGN KEY(user) REFERENCES user(id)
 );
 
-CREATE TABLE userlog
+CREATE TABLE usagelog
 (
 	id int AUTO_INCREMENT NOT NULL,
 	student int,
