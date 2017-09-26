@@ -69,8 +69,7 @@
 									<!-- generate action buttons -->
 									<td width="160">
 										<!-- update button -->
-										<a href="course_form.php?&id=<?php echo $data['id']; ?>
-											&ops=2">
+										<a href="course_form.php?&id=<?php echo $data['id']; ?>">
 											<button type="button" class="btn btn-primary">
 												<i class="fa fa-pencil"></i></button>
 										</a>

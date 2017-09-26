@@ -99,7 +99,7 @@
         //record deletion in activity log
         //get user id from session
         $userId=$_SESSION['id'];
-        $strAct=$actDeleted." ".$textDepartment.$msgWithId.
+        $strAct=$actDeleted." ".$textStudent.$msgWithId.
           $id.$msgWithName.$name;
         $sql = "INSERT INTO activitylog (user,activity)
           VALUES($userId,'$strAct')";
@@ -143,7 +143,7 @@
       else
       {
         //concatenate activity description
-        $strDeAct=$msgAct." ".$textDepartment.
+        $strDeAct=$msgAct." ".$textStudent.
           $msgWithId.$id.$msgWithName.$name;
 
         //record update in activity log
