@@ -62,7 +62,8 @@
 									<td><?php echo $data['name'];?></td>
                   <td><?php echo $data['lecturer'];?></td>
 									<td>
-										<input type="checkbox" name="active" disabled
+										<input type="checkbox" name="active"
+										onclick="actDeact('course',<?php echo "'".$data['id']."','".$data['name']."','".$data['active']."'";?>)"
 										<?php if($data['active']==1){?>checked<?php } ?>>
 									</td>
 
@@ -73,25 +74,6 @@
 											<button type="button" class="btn btn-primary">
 												<i class="fa fa-pencil"></i></button>
 										</a>
-										<!-- deactivate button -->
-										<a href="course_func.php?&id=<?php echo $data['id']; ?>
-											&name=<?php echo $data['name']; ?>
-											&active=<?php echo $data['active']; ?>&ops=4">
-											<button type="button" class="btn btn-secondary">
-												<i class="fa fa-power-off"></i></button>
-										</a>
-
-
-										<!-- delete button -->
-										<!-- Uncomment if you want user be able to
-										permanently delete record -->
-										<!-- <a href="course_func.php?&id=<?php //echo $data['id']; ?>
-											&name=<?php //echo $data['name']; ?>&ops=3"
-											onClick="return confirm('<?php //echo $msgDel;?>')">
-											<button type="button" class="btn btn-danger">
-												<i class="fa fa-trash"></i></button>
-										</a> -->
-
 									</td>
 								</tr>
 							<?php }//end populate table ?>

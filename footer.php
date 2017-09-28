@@ -104,10 +104,11 @@
 			<script>
 				function actDeact(mod, id, name, active)
 				{
+					var vmod=mod+"_func.php?&ops=4";
 					var vid="&id="+id;
 					var vname="&name="+name;
 					var vactive="&active="+active;
-					var link=mod.concat("_func.php?&ops=4",vid,vname,vactive);
+					var link=vmod.concat(vid,vname,vactive);
 					alert(link);
 					location.href=link;
 					// $.get(link);

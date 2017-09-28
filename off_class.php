@@ -75,7 +75,8 @@
                   <td><?php echo $data['endclass'];?></td>
 									<td><?php echo $data['description'];?></td>
 									<td>
-										<input type="checkbox" name="active" disabled
+										<input type="checkbox" name="active"
+										onclick="actDeact('off_class',<?php echo "'".$data['id']."','".$data['name']."','".$data['active']."'";?>)"
 										<?php if($data['active']==1){?>checked<?php } ?>>
 									</td>
 

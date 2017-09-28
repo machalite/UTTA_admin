@@ -149,6 +149,7 @@
   $textReset                          ="Reset";
   $textOnstudent                      ="on student ID :";
   $textFor                            ="For";
+  $textView                           ="View";
 
   //messages
   $msgDel                             ="Proceed delete ?";

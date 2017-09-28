@@ -90,15 +90,14 @@
                   <td><?php echo $data['course'];?></td>
                   <td><?php echo $data['lecturer'];?></td>
 									<td>
-										<input type="checkbox" name="active" disabled
+										<input type="checkbox" name="active"
+										onclick="actDeact('taken_course',<?php echo "'".$data['id']."','".$data['name']."','".$data['active']."'";?>)"
 										<?php if($data['active']==1){?>checked<?php } ?>>
 									</td>
 
 									<!-- generate action buttons -->
 									<td width="160">
 										<!-- delete button -->
-										<!-- Uncomment if you want user be able to
-										permanently delete record -->
 										<a href="taken_course_func.php?&ops=3&id=<?php echo $data['id']; ?>
 											&course=<?php echo $data['course']; ?>"
 											onClick="return confirm('<?php echo $msgDel;?>')">
