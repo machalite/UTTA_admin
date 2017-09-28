@@ -100,6 +100,21 @@
 		  </script>
 		  <!-- /Datatables -->
 
+			<!-- checkbox activate/deactivate -->
+			<script>
+				function actDeact(mod, id, name, active)
+				{
+					var vid="&id="+id;
+					var vname="&name="+name;
+					var vactive="&active="+active;
+					var link=mod.concat("_func.php?&ops=4",vid,vname,vactive);
+					alert(link);
+					location.href=link;
+					// $.get(link);
+				}
+			</script>
+			<!-- /checkbox activate/deactivate -->
+
 		  <!-- Custom Theme Scripts -->
 		  <script src="js/custom.min.js"></script>
 		<!-- END OF JS -->
