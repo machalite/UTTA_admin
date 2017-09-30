@@ -43,8 +43,18 @@
         $data=mysqli_fetch_array($sql,MYSQLI_ASSOC);
         $name=$data['name'];
 
+        switch ($status)
+        {
+          case 1:$action=$statusCancelled;break;
+          case 2:$action=$statusPostponed;break;
+          case 3:$action=$statusRelocated;break;
+          case 4:$action=$statusReplaced;break;
+          case 5:$action=$statusCreateSupplementary;break;
+          default:$action=$statusNot;
+        }
+
         //concatenate activity description
-  		  $strAct=$actCreate." ".$textClass." : ".$name;
+  		  $strAct=$action." ".$textCourse." : ".$name;
   		  //record insertion in activity log
   		  $sql = "INSERT INTO activitylog (user,activity)
   		  VALUES($userId,'$strAct')";
@@ -173,13 +183,6 @@
       }
       else
       {
-        //get course name
-        $qry="SELECT cr.name FROM class c, course cr
-        WHERE c.course=cr.id AND id=$class";
-        $sql=mysqli_query($con,$qry);
-        $data=mysqli_fetch_array($sql,MYSQLI_ASSOC);
-        $name=$data['name'];
-
         //concatenate activity description
         $strDeAct=$msgAct." ".$textClass.
           $msgWithId.$id.$msgWithName.$name;

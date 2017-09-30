@@ -54,7 +54,7 @@
 								<td><?php echo $data['lastlogin'];?></td>
 								<td>
 									<input type="checkbox" name="active"
-									onclick="actDeact('user',<?php echo "'".$data['id']."','".$data['name']."','".$data['active']."'";?>)"
+									onclick="actDeact('user',<?php echo "'".$data['id']."','".$data['username']."','".$data['active']."'";?>)"
 									<?php if($data['active']==1){?>checked<?php } ?>>
 								</td>
 

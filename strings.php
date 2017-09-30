@@ -61,8 +61,8 @@
   $tableClass                         ="Class";
   $tableStartDate                     ="Start Date";
   $tableEndDate                       ="End Date";
-  $tableStartClass                    ="Starts at";
-  $tableEndClass                      ="End";
+  $tableStartClass                    ="Starts";
+  $tableEndClass                      ="Ends";
   $tableDay                           ="Day";
   $tableYear                          ="School Year";
   $tableCourse                        ="Course";
@@ -183,7 +183,9 @@
   $statusPostponed                    ="Postponed";
   $statusRelocated                    ="Relocated";
   $statusReplacement                  ="Replacement";
+  $statusReplaced                     ="Created replacement for";
   $statusSupplementary                ="Supplementary";
+  $statusCreateSupplementary          ="Created supplementary for";
   $statusNot                          ="Status not set";
 
 ?>

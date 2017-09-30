@@ -34,7 +34,7 @@
           <table id="datatable" class="table table-striped table-bordered">
             <thead>
               <tr>
-                <th><?php echo $tableClass;?></th>
+                <th><?php echo $tableCourse;?></th>
 								<th><?php echo $tableStatus;?></th>
                 <th><?php echo $tableDate;?></th>
                 <th><?php echo $tableRoom;?></th>
@@ -48,14 +48,19 @@
             <tbody>
               <?php
 							//populate table with data from database
-							$strDisp="SELECT id, class, status, date, startclass, endclass,
-							active, description, room FROM offclass ORDER BY id";
+							$strDisp="SELECT o.id, s.name AS course, o.status, o.date, o.startclass,
+							o.endclass, o.active, o.description, r.name AS room
+							FROM offclass o, class c, course s, room r
+							WHERE o.class=c.id
+							AND c.room=r.id
+							AND c.course=s.id
+							ORDER BY o.id DESC";
 
 							$sql=mysqli_query($con,$strDisp);
 							while($data=mysqli_fetch_array($sql,MYSQLI_ASSOC))
 							{//begin populate table ?>
 								<tr>
-                  <td><?php echo $data['class'];?></td>
+                  <td><?php echo $data['course'];?></td>
 									<td>
 										<?php
 										switch ($data['status'])
@@ -76,7 +81,7 @@
 									<td><?php echo $data['description'];?></td>
 									<td>
 										<input type="checkbox" name="active"
-										onclick="actDeact('off_class',<?php echo "'".$data['id']."','".$data['name']."','".$data['active']."'";?>)"
+										onclick="actDeact('off_class',<?php echo "'".$data['id']."','".$data['course']."','".$data['active']."'";?>)"
 										<?php if($data['active']==1){?>checked<?php } ?>>
 									</td>
 
@@ -87,23 +92,6 @@
 											<button type="button" class="btn btn-primary">
 												<i class="fa fa-pencil"></i></button>
 										</a>
-										<!-- deactivate button -->
-										<a href="off_class_func.php?&id=<?php echo $data['id']; ?>
-											&active=<?php echo $data['active']; ?>&ops=4">
-											<button type="button" class="btn btn-secondary">
-												<i class="fa fa-power-off"></i></button>
-										</a>
-
-
-										<!-- delete button -->
-										<!-- Uncomment if you want user be able to
-										permanently delete record -->
-										<!-- <a href="class_func.php?&id=<?php //echo $data['id']; ?>
-											&name=<?php //echo $data['name']; ?>&ops=3"
-											onClick="return confirm('<?php //echo $msgDel;?>')">
-											<button type="button" class="btn btn-danger">
-												<i class="fa fa-trash"></i></button>
-										</a> -->
 
 									</td>
 								</tr>

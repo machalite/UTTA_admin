@@ -78,8 +78,8 @@
 											&name=<?php echo $data['name']; ?>
 											&code=<?php echo $data['code']; ?>">
 											<button type="button" class="btn btn-secondary">
-												<?php echo $textView?></button>
-										</a>>
+												<?php echo $textView; ?></button>
+										</a>
 									</td>
 								</tr>
 							<?php }//end populate table ?>
