@@ -116,7 +116,7 @@
                     <select name="course" id="listBox" class="form-control">
                       <?php
                         include_once("connection.php");
-                        $qry="SELECT id, name FROM course WHERE active=1
+                        $qry="SELECT id, name, code FROM course WHERE active=1
                         ORDER BY name";
                         $sql=mysqli_query($con,$qry);
                         while($data=mysqli_fetch_array($sql,MYSQLI_ASSOC))
@@ -124,7 +124,7 @@
                           <option value=<?php echo $data['id']; ?>
                             <?php if($data['id']==$course)
                             {?>selected="selected"<?php } ?>>
-                            <?php echo $data['name'];?>
+                            <?php echo $data['code']." - ".$data['name'];?>
                           </option>
                       <?php } //end populate list ?>
                     </select>

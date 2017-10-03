@@ -53,8 +53,7 @@
 							FROM offclass o, class c, course s, room r
 							WHERE o.class=c.id
 							AND c.room=r.id
-							AND c.course=s.id
-							ORDER BY o.id DESC";
+							AND c.course=s.id";
 
 							$sql=mysqli_query($con,$strDisp);
 							while($data=mysqli_fetch_array($sql,MYSQLI_ASSOC))

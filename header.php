@@ -142,6 +142,11 @@
                       <?php echo $sidebarActivityLog?> </a>
                   </li>
 
+                  <li>
+                    <a href="usage_log.php"><i class="fa fa-list-ul "></i>
+                      <?php echo $sidebarUsageLog?> </a>
+                  </li>
+
   							</ul>
   						</div>
   					</div>

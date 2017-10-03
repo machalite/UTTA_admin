@@ -43,7 +43,7 @@
             <tbody>
               <?php
 							//populate table with data from database
-							$strDisp="SELECT id,code,name,active FROM faculty ORDER BY id";
+							$strDisp="SELECT id,code,name,active FROM faculty";
 							$sql=mysqli_query($con,$strDisp);
 							while($data=mysqli_fetch_array($sql,MYSQLI_ASSOC))
 							{//begin populate table ?>

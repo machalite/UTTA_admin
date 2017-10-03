@@ -39,6 +39,7 @@
   $sidebarStudent                     ="Student";
   $sidebarOffClass                    ="Reschedule / Cancel Class";
   $sidebarActivityLog                 ="Activity logs";
+  $sidebarUsageLog                    ="Request logs";
 
   //footer.php
   $footerText                         ="Created by Jonathan Huang 2017";
@@ -116,6 +117,13 @@
   $actLogUsername                     ="Username";
   $actLogActivity                     ="Activities";
   $actLogTime                         ="Timestamp";
+
+  //user_log.php
+  $usageLogTitle                       ="Bot request log";
+  $usageLogName                        ="Student name";
+  $usageLogActivity                    ="Activities";
+  $usageLogTime                        ="Timestamp";
+  $usageLogLineId                      ="Line ID";
 
   //logs
   $actLogin                           ="Logged in";

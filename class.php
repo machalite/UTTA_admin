@@ -50,8 +50,7 @@
 							$strDisp="SELECT c.id,c.day,c.startclass,c.endclass,c.active,
               cr.name AS course, r.name AS room, y.name AS year
               FROM class c, course cr, year y, room r
-              WHERE c.year=y.id AND c.course=cr.id AND c.room=r.id
-                ORDER BY c.id";
+              WHERE c.year=y.id AND c.course=cr.id AND c.room=r.id";
 							$sql=mysqli_query($con,$strDisp);
 							while($data=mysqli_fetch_array($sql,MYSQLI_ASSOC))
 							{//begin populate table ?>

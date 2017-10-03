@@ -43,13 +43,13 @@
 								<div class="col-md-5 col-sm-9 col-xs-12">
 									<select name="course" id="listBox" class="form-control">
 										<?php
-											$qry="SELECT id, name FROM course WHERE active=1
+											$qry="SELECT id, name, code FROM course WHERE active=1
 											ORDER BY name";
 											$sql=mysqli_query($con,$qry);
 											while($data=mysqli_fetch_array($sql,MYSQLI_ASSOC))
 											{ //begin populate list ?>
 												<option value=<?php echo $data['id']; ?>>
-													<?php echo $data['name'];?>
+													<?php echo $data['code']." - ".$data['name'];?>
 												</option>
 										<?php } //end populate list ?>
 									</select>

@@ -48,7 +48,7 @@
 							//populate table with data from database
 							$strDisp="SELECT r.id,r.code,r.name,r.floor,
                 r.description, r.active,b.name AS building
-                  FROM room r, building b WHERE r.building=b.id ORDER BY r.id";
+                  FROM room r, building b WHERE r.building=b.id";
 
 							$sql=mysqli_query($con,$strDisp);
 							while($data=mysqli_fetch_array($sql,MYSQLI_ASSOC))

@@ -49,8 +49,7 @@
 							$strDisp="SELECT c.id,c.code,c.name,c.active,
                 f.name AS faculty, d.name AS department, l.name AS lecturer
 								FROM course c, faculty f , department d, lecturer l
-                WHERE c.department=d.id AND d.faculty=f.id AND c.lecturer=l.id
-                ORDER BY c.id";
+                WHERE c.department=d.id AND d.faculty=f.id AND c.lecturer=l.id";
 
 							$sql=mysqli_query($con,$strDisp);
 							while($data=mysqli_fetch_array($sql,MYSQLI_ASSOC))

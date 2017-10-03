@@ -48,8 +48,7 @@
 							$strDisp="SELECT s.id,s.code,s.name,s.active,
                 f.name AS faculty, d.name AS department
 								FROM student s, faculty f , department d
-                WHERE s.department=d.id AND d.faculty=f.id
-                ORDER BY s.id";
+                WHERE s.department=d.id AND d.faculty=f.id";
 
 							$sql=mysqli_query($con,$strDisp);
 							while($data=mysqli_fetch_array($sql,MYSQLI_ASSOC))
