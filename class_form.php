@@ -14,7 +14,7 @@
      4 => $dayThu,
      5 => $dayFri,
      6 => $daySat,
-     7 => $daySun
+     0 => $daySun
   );
 
 	//if there is passed ID, then fill textbox with data
@@ -94,7 +94,7 @@
                       <?php
                         include_once("connection.php");
                         $qry="SELECT id, name FROM year WHERE active=1
-                          ORDER BY name";
+                          ORDER BY id DESC";
                         $sql=mysqli_query($con,$qry);
                         while($data=mysqli_fetch_array($sql,MYSQLI_ASSOC))
                         { //begin populate list ?>

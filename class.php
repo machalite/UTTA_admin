@@ -67,7 +67,7 @@
 											case 4:echo $dayThu;break;
 											case 5:echo $dayFri;break;
 											case 6:echo $daySat;break;
-											case 7:echo $daySun;break;
+											case 0:echo $daySun;break;
 											default:echo $dayNot;
 										}
 										?>
