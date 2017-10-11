@@ -5,10 +5,10 @@
 	include_once("strings.php");
 
 	//declaration and initialisation
-	$host="localhost"; //localhost if hosted locally
-	$user="root"; //default=root
-	$pass="";
-	$db="uttadb"; //database name (default=uttadb)
+	$host="us-cdbr-iron-east-05.cleardb.net"; //localhost if hosted locally
+	$user="bfc1e725797bdf"; //default=root
+	$pass="c4e344fc";
+	$db="heroku_2ad6e3d7ef27f71"; //database name (default=uttadb)
 
 	//test variable
 	// $host="120.89.92.80"; //localhost if hosted locally
