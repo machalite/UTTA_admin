@@ -8,9 +8,9 @@
   include_once("strings.php");
 
 	//Escape user inputs for security
-	$username = mysqli_real_escape_string($con, $_POST['username']);
+	$username = $_POST['username'];
   //password MD5 encrypted
-	$password = mysqli_real_escape_string($con,md5($_POST['password']));
+	$password = md5($_POST['password']);
 
 	// attempt select query execution
 	$sql = mysqli_query($con,"SELECT id,username,password FROM user
