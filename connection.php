@@ -12,7 +12,6 @@ $username = "bfc1e725797bdf";
 $password = "c4e344fc";
 $db = "heroku_2ad6e3d7ef27f71";
 
-
 $con = new mysqli($server, $username, $password, $db);
 
 if (mysqli_connect_errno())

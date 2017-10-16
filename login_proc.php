@@ -65,6 +65,9 @@
 			VALUES($userId,'$actLogin')";
 		mysqli_query($con, $sql);
 
+		//close connection
+		mysqli_close($con);
+
 		//redirect to main page
     header("Location: index.php");
 	}
