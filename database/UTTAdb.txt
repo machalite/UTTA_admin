@@ -125,7 +125,7 @@ CREATE TABLE usagelog
 (
 	id int AUTO_INCREMENT NOT NULL,
 	student int,
-	activity varchar(50),
+	activity int,
 	timestamp datetime DEFAULT CURRENT_TIMESTAMP,
 	PRIMARY KEY(id),
 	FOREIGN KEY(student) REFERENCES student(id)
