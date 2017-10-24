@@ -118,12 +118,21 @@
   $actLogActivity                     ="Activities";
   $actLogTime                         ="Timestamp";
 
-  //user_log.php
-  $usageLogTitle                       ="Bot request log";
-  $usageLogName                        ="Student name";
-  $usageLogActivity                    ="Activities";
-  $usageLogTime                        ="Timestamp";
-  $usageLogLineId                      ="Line ID";
+  //usage_log.php
+  $usageLogTitle                      ="Bot request log";
+  $usageLogName                       ="Student name";
+  $usageLogActivity                   ="Activities";
+  $usageLogTime                       ="Timestamp";
+  $usageLogLineId                     ="Line ID";
+  $usageRegister                      ="!register";
+  $usageToday                         ="!today";
+  $usageCheckroom                     ="!checkroom";
+  $usageSchedule                      ="!register";
+  $usageNext                          ="!next";
+  $usageWhere                         ="!where";
+  $usageCheckcourse                   ="!checkcourse";
+  $usageChanges                       ="!changes";
+
 
   //logs
   $actLogin                           ="Logged in";

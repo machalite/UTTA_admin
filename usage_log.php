@@ -29,7 +29,6 @@
             <thead>
               <tr>
                 <th><?php echo $usageLogName;?></th>
-                <th><?php echo $usageLogLineId?></th>
 								<th><?php echo $usageLogActivity?></th>
 								<th><?php echo $usageLogTime;?></th>
               </tr>
@@ -37,16 +36,27 @@
             <tbody>
               <?php
 							//populate the table with activity log from database
-							$strDisp="SELECT u.id,s.name,s.lineid,activity,timestamp
-							FROM usageLog u, student s
+							$strDisp="SELECT u.id,s.name,activity,timestamp
+							FROM usagelog u, student s
 							WHERE u.student=s.id ORDER BY timestamp DESC";
 							$sql=mysqli_query($con,$strDisp);
 							while($data=mysqli_fetch_array($sql,MYSQLI_ASSOC))
 							{//begin populate table?>
 							<tr>
 								<td><?php echo $data['name'];?></td>
-                <td><?php echo $data['lineid'];?></td>
-								<td><?php echo $data['activity'];?></td>
+								<td><?php
+								switch($data['activity'])
+								{
+									case 1:echo $usageRegister;break;
+									case 2:echo $usageToday;break;
+									case 3:echo $usageCheckroom;break;
+									case 4:echo $usageSchedule;break;
+									case 5:echo $usageNext;break;
+									case 6:echo $usageWhere;break;
+									case 7:echo $usageCheckcourse;break;
+									case 8:echo $usageChanges;break;
+								}
+								?></td>
 								<td><?php echo $data['timestamp'];?></td>
 							</tr>
 							<?php  }//end populate table ?>
