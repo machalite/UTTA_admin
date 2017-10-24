@@ -15,7 +15,7 @@
 		$text=$textUpdate." ".$textStudent;
 
 		// attempt select query execution
-		$sql=mysqli_query($con,"SELECT id,code,name,department
+		$sql=mysqli_query($con,"SELECT id,code,name,department,authCode,lineId
 			FROM student WHERE id='$_GET[id]'");
 		$data=mysqli_fetch_array($sql,MYSQLI_ASSOC);
 
@@ -24,6 +24,9 @@
 		$name=$data['name'];
 		$code=$data['code'];
     $department=$data['department'];
+		$authCode=$data['authCode'];
+		$lineId=$data['lineId'];
+
 
 		$link="student_func.php?&ops=2";
 	}
@@ -34,8 +37,21 @@
 		$name=null;
 		$code=null;
     $department=null;
+		$authCode=random_str(6);
+		$lineId=null;
 
 		$link="student_func.php?&ops=1";
+	}
+
+	function random_str($length, $keyspace = '0123456789abcdefghijklmnopqrstuvwx
+																						yzABCDEFGHIJKLMNOPQRSTUVWXYZ')
+	{
+	    $str = '';
+	    $max = mb_strlen($keyspace, '8bit') - 1;
+	    for ($i = 0; $i < $length; ++$i) {
+	        $str .= $keyspace[random_int(0, $max)];
+	    }
+	    return $str;
 	}
 
 ?>
@@ -107,6 +123,26 @@
 									<div class="col-md-9 col-sm-9 col-xs-12">
 										<input type="text" name="name" class="form-control"
 										required value="<?php echo $name;?>">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="control-label col-md-2 col-sm-3 col-xs-12">
+										<?php echo $formAuthCode;?>
+									</label>
+									<div class="col-md-9 col-sm-9 col-xs-12">
+										<input type="text" name="authCode" class="form-control"
+										required value="<?php echo $authCode;?>">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="control-label col-md-2 col-sm-3 col-xs-12">
+										<?php echo $formLineId;?>
+									</label>
+									<div class="col-md-9 col-sm-9 col-xs-12">
+										<input type="text" name="lineId" class="form-control"
+										required value="<?php echo $lineId;?>">
 									</div>
 								</div>
 
