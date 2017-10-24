@@ -6,6 +6,17 @@
 	//fetch strings to display
 	include_once ("strings.php");
 
+	function random_str($length, $keyspace = '0123456789abcdefghijklmnopqrstuvwx
+																						yzABCDEFGHIJKLMNOPQRSTUVWXYZ')
+	{
+			$str = '';
+			$max = mb_strlen($keyspace, '8bit') - 1;
+			for ($i = 0; $i < $length; ++$i) {
+					$str .= $keyspace[random_int(0, $max)];
+			}
+			return $str;
+	}
+
 	//if there is passed ID, then fill textbox with data
 	if(!empty($_GET['id']))
 	{
@@ -41,17 +52,6 @@
 		$lineId=null;
 
 		$link="student_func.php?&ops=1";
-	}
-
-	function random_str($length, $keyspace = '0123456789abcdefghijklmnopqrstuvwx
-																						yzABCDEFGHIJKLMNOPQRSTUVWXYZ')
-	{
-	    $str = '';
-	    $max = mb_strlen($keyspace, '8bit') - 1;
-	    for ($i = 0; $i < $length; ++$i) {
-	        $str .= $keyspace[random_int(0, $max)];
-	    }
-	    return $str;
 	}
 
 ?>
