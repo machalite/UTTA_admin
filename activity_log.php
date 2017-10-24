@@ -45,7 +45,12 @@
 							<tr>
 								<td><?php echo $data['username'];?></td>
 								<td><?php echo $data['activity'];?></td>
-								<td><?php echo $data['timestamp'];?></td>
+								<td><?php
+								//echo $data['timestamp'];
+								$date = new DateTime($data['timestamp'], new DateTimeZone('UTC'));
+								$date->setTimezone(new DateTimeZone($timeZone));
+								echo $date->format('Y-m-d H:i:sP');
+								?></td>
 							</tr>
 							<?php  }//end populate table ?>
             </tbody>

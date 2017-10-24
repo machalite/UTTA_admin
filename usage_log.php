@@ -57,9 +57,7 @@
 									case 8:echo $usageChanges;break;
 								}
 								?></td>
-								<td><?php //display date time in appropriate time zone
-								$date = new DateTime($data['timestamp'], new DateTimeZone($timeZone));
-								echo $date;
+								<td><?php echo $data['timestamp'];?></td>
 								?>
 							</tr>
 							<?php  }//end populate table ?>
