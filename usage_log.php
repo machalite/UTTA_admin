@@ -55,10 +55,8 @@
 									case 6:echo $usageWhere;break;
 									case 7:echo $usageCheckcourse;break;
 									case 8:echo $usageChanges;break;
-								}
-								?></td>
+								}?></td>
 								<td><?php echo $data['timestamp'];?></td>
-								?>
 							</tr>
 							<?php  }//end populate table ?>
             </tbody>

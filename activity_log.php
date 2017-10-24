@@ -49,7 +49,7 @@
 								//echo $data['timestamp'];
 								$date = new DateTime($data['timestamp'], new DateTimeZone('UTC'));
 								$date->setTimezone(new DateTimeZone($timeZone));
-								echo $date->format('Y-m-d H:i:sP');
+								echo $date->format('H:i:s a d-m-Y ');
 								?></td>
 							</tr>
 							<?php  }//end populate table ?>
