@@ -2,6 +2,12 @@
   //collection of strings to be displayed on the front end
   //default written in English
 
+  //time zone for date time display
+  //change this variable to display in another timezone
+  // use this link for list of supported timezones
+  //http://id1.php.net/manual/en/timezones.php
+  $timeZone                           ='Asia/Jakarta';
+
   //university information
   $univName                           ="UTTA University";
   $univLogoFileName                   ="logo.png";
