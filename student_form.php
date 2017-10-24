@@ -6,15 +6,10 @@
 	//fetch strings to display
 	include_once ("strings.php");
 
-	function random_str($length, $keyspace = '0123456789abcdefghijklmnopqrstuvwx
-																						yzABCDEFGHIJKLMNOPQRSTUVWXYZ')
+	function random_str()
 	{
-			$str = '';
-			$max = mb_strlen($keyspace, '8bit') - 1;
-			for ($i = 0; $i < $length; ++$i) {
-					$str .= $keyspace[random_int(0, $max)];
-			}
-			return $str;
+		$random = substr(md5(mt_rand()), 0, 7);
+		return $random;
 	}
 
 	//if there is passed ID, then fill textbox with data
@@ -48,7 +43,7 @@
 		$name=null;
 		$code=null;
     $department=null;
-		$authCode=random_str(6);
+		$authCode=random_str(3);
 		$lineId=null;
 
 		$link="student_func.php?&ops=1";
