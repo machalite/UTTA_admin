@@ -87,7 +87,6 @@
 					var vname="&name="+name;
 					var vactive="&active="+active;
 					var link=vmod.concat(vid,vname,vactive);
-					alert(link);
 					location.href=link;
 					// $.get(link);
 				}
