@@ -127,7 +127,7 @@
 									</label>
 									<div class="col-md-9 col-sm-9 col-xs-12">
 										<input type="text" name="authCode" class="form-control"
-										required value="<?php echo $authCode;?>">
+										 value="<?php echo $authCode;?>">
 									</div>
 								</div>
 
@@ -137,7 +137,7 @@
 									</label>
 									<div class="col-md-9 col-sm-9 col-xs-12">
 										<input type="text" name="lineId" class="form-control"
-										required value="<?php echo $lineId;?>">
+										value="<?php echo $lineId;?>">
 									</div>
 								</div>
 

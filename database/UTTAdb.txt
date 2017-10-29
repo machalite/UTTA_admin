@@ -96,7 +96,7 @@ CREATE TABLE class
   room int,
 	active boolean DEFAULT 1,
 	PRIMARY KEY(id),
-	FOREIGN KEY(year) REFERENCES year(id)
+	FOREIGN KEY(year) REFERENCES year(id),
   FOREIGN KEY(course) REFERENCES course(id),
   FOREIGN KEY(room) REFERENCES room(id)
 );
