@@ -18,10 +18,12 @@
       $name = mysqli_real_escape_string($con, $_POST['name']);
       $code = mysqli_real_escape_string($con, $_POST['code']);
       $department = mysqli_real_escape_string($con, $_POST['department']);
+      $authCode = mysqli_real_escape_string($con, $_POST['authCode']);
+      $lineId = mysqli_real_escape_string($con, $_POST['lineId']);
 
       //attempt insert query execution
-      $strIns = "INSERT INTO student (name,code,department)
-        VALUES('$name','$code','$department')";
+      $strIns = "INSERT INTO student (name,code,department,authcode,lineid)
+        VALUES('$name','$code','$department','$authCode','$lineId')";
 
       if(!mysqli_query($con, $strIns))
       {
@@ -52,10 +54,12 @@
       $name = mysqli_real_escape_string($con, $_POST['name']);
       $code = mysqli_real_escape_string($con, $_POST['code']);
       $department = mysqli_real_escape_string($con, $_POST['department']);
+      $authCode = mysqli_real_escape_string($con, $_POST['authCode']);
+      $lineId = mysqli_real_escape_string($con, $_POST['lineId']);
 
       //attempt update query execution
       $sql = "UPDATE student SET name='$name', code='$code',
-        department='$department' WHERE id=$id";
+        department='$department', authcode='$authCode', lineid='$lineId' WHERE id=$id";
       if(!mysqli_query($con, $sql))
       {
         //display fail message and sql error
