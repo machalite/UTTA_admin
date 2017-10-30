@@ -128,7 +128,7 @@
                     <select name="status" id="listBox" class="form-control">
                        <?php foreach($classStatus as $value=>$string){?>
                        <option value=<?php echo $value; ?>
-                         <?php if($value==$class)
+                         <?php if($value==$status)
                          {?>selected="selected"<?php } ?>>
                          <?php echo $string; ?></option>
                        <?php } ?>
