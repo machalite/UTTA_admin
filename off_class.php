@@ -76,7 +76,7 @@
                   <td><?php echo $data['date'];?></td>
                   <td><?php echo $data['room'];?></td>
                   <td><?php echo $data['startclass'];?></td>
-                  <td><?php echo $data['endclass'];?></td>
+                  <td><?php echo date("h:i",$data['endclass']);?></td>
 									<td><?php echo $data['description'];?></td>
 									<td>
 										<input type="checkbox" name="active"
