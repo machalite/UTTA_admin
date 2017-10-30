@@ -86,7 +86,7 @@
   $formLastLogin                      ="Last logged in";
   $formName                           ="Name";
   $formCode                           ="Code";
-  $formAuthCode                       ="Authorization Code";
+  $formAuthCode                       ="Authentication Code";
   $formLineId                         ="Line ID";
   $formDescription                    ="Description";
   $formBuilding                       ="Building";
