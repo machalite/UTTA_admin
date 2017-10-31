@@ -80,7 +80,7 @@
   		//Check if new password repetition match
   		elseif ($newpassword!=$reppassword)
   		{
-  			echo "<center>".$msgPassNotMatch."</center><br>";
+  			echo "<center>".$msgNewPassNotMatch."</center><br>";
   			echo "<meta http-equiv='refresh' content='1; url=user.php'>";
   		}
   		//submitted password match with old password

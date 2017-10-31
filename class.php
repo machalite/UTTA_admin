@@ -73,8 +73,8 @@
 										?>
 									</td>
                   <td><?php echo $data['room'];?></td>
-                  <td><?php echo $data['startclass'];?></td>
-                  <td><?php echo $data['endclass'];?></td>
+									<td><?php echo date('H:i',strtotime($data['startclass']));?></td>
+									<td><?php echo date('H:i',strtotime($data['endclass']));?></td>
 									<td>
 										<input type="checkbox" name="active"
 										onclick="actDeact('class',<?php echo "'".$data['id']."','".$data['name']."','".$data['active']."'";?>)"

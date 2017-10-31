@@ -180,6 +180,7 @@
   $msgDel                             ="Proceed delete ?";
   $msgDelSucceed                      ="Deleted succesfully";
   $msgDelFail                         ="Deletion failed!";
+  $msgNewPassNotMatch                 ="New password does not match!";
   $msgPassNotMatch                    ="Password does not match!";
   $msgPassInv                         ="Invalid Password!";
   $msgInsFail                         ="Addition failed!";
