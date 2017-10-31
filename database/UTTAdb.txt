@@ -1,6 +1,6 @@
 CREATE TABLE faculty
 (
-	id int AUTO_INCREMENT=1 NOT NULL,
+	id int AUTO_INCREMENT NOT NULL,
   code varchar(10),
   name varchar(50) NOT NULL,
 	active boolean DEFAULT 1,
@@ -9,7 +9,7 @@ CREATE TABLE faculty
 
 CREATE TABLE department
 (
-	id int AUTO_INCREMENT=1 NOT NULL,
+	id int AUTO_INCREMENT NOT NULL,
   code varchar(10),
   name varchar(50) NOT NULL,
   faculty int,
@@ -20,7 +20,7 @@ CREATE TABLE department
 
 CREATE TABLE lecturer
 (
-	id int AUTO_INCREMENT=1 NOT NULL,
+	id int AUTO_INCREMENT NOT NULL,
   code varchar(20),
   name varchar(50) NOT NULL,
 	active boolean DEFAULT 1,
@@ -29,7 +29,7 @@ CREATE TABLE lecturer
 
 CREATE TABLE student
 (
-	id int AUTO_INCREMENT=1 NOT NULL,
+	id int AUTO_INCREMENT NOT NULL,
   code varchar(20),
   name varchar(50) NOT NULL,
   department int,
@@ -42,7 +42,7 @@ CREATE TABLE student
 
 CREATE TABLE building
 (
-	id int AUTO_INCREMENT=1 NOT NULL,
+	id int AUTO_INCREMENT NOT NULL,
   name varchar(50) NOT NULL,
   description text,
 	active boolean DEFAULT 1,
@@ -51,7 +51,7 @@ CREATE TABLE building
 
 CREATE TABLE room
 (
-	id int AUTO_INCREMENT=1 NOT NULL,
+	id int AUTO_INCREMENT NOT NULL,
   code varchar(10),
   name varchar(50) NOT NULL,
   building int,
@@ -64,7 +64,7 @@ CREATE TABLE room
 
 CREATE TABLE year
 (
-	id int AUTO_INCREMENT=1 NOT NULL,
+	id int AUTO_INCREMENT NOT NULL,
   name varchar(50) NOT NULL,
   startdate date NOT NULL,
 	enddate date NOT NULL,
@@ -74,7 +74,7 @@ CREATE TABLE year
 
 CREATE TABLE course
 (
-	id int AUTO_INCREMENT=1 NOT NULL,
+	id int AUTO_INCREMENT NOT NULL,
   code varchar(20),
   name varchar(50) NOT NULL,
   department int,
@@ -87,7 +87,7 @@ CREATE TABLE course
 
 CREATE TABLE class
 (
-	id int AUTO_INCREMENT=1 NOT NULL,
+	id int AUTO_INCREMENT NOT NULL,
   day int NOT NULL,
   startclass time NOT NULL,
 	endclass time NOT NULL,
@@ -103,7 +103,7 @@ CREATE TABLE class
 
 CREATE TABLE user
 (
-	id int AUTO_INCREMENT=1 NOT NULL,
+	id int AUTO_INCREMENT NOT NULL,
 	username varchar(50) NOT NULL,
 	password varchar(50) NOT NULL,
 	lastlogin datetime,
@@ -113,7 +113,7 @@ CREATE TABLE user
 
 CREATE TABLE activitylog
 (
-	id int AUTO_INCREMENT=1 NOT NULL,
+	id int AUTO_INCREMENT NOT NULL,
 	user int,
 	activity varchar(50),
 	timestamp datetime DEFAULT CURRENT_TIMESTAMP,
@@ -123,7 +123,7 @@ CREATE TABLE activitylog
 
 CREATE TABLE usagelog
 (
-	id int AUTO_INCREMENT=1 NOT NULL,
+	id int AUTO_INCREMENT NOT NULL,
 	student int,
 	activity int,
 	timestamp datetime DEFAULT CURRENT_TIMESTAMP,
@@ -133,7 +133,7 @@ CREATE TABLE usagelog
 
 CREATE TABLE offclass
 (
-	id int AUTO_INCREMENT=1 NOT NULL,
+	id int AUTO_INCREMENT NOT NULL,
 	class int,
   status int,
 	startclass time,
@@ -149,7 +149,7 @@ CREATE TABLE offclass
 
 CREATE TABLE takencourse
 (
-	id int AUTO_INCREMENT=1 NOT NULL,
+	id int AUTO_INCREMENT NOT NULL,
 	course int,
 	student int,
 	PRIMARY KEY(id),
