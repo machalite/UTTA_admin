@@ -139,7 +139,7 @@
     {
       //get selected record's id and name
       $id=$_GET['id'];
-      $name=$_GET['name'];
+      $name=$_GET['name']; //get course ID
       $active=$_GET['active'];
 
       //deactivate or activate record
@@ -167,12 +167,6 @@
       }
       else
       {
-        //get course name
-        $qry="SELECT name FROM course WHERE id=$course";
-        $sql=mysqli_query($con,$qry);
-        $data=mysqli_fetch_array($sql,MYSQLI_ASSOC);
-        $name=$data['name'];
-
         //concatenate activity description
         $strDeAct=$msgAct." ".$textClass.
           $msgWithId.$id.$msgWithName.$name;
