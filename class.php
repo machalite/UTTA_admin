@@ -77,7 +77,7 @@
 									<td><?php echo date('H:i',strtotime($data['endclass']));?></td>
 									<td>
 										<input type="checkbox" name="active"
-										onclick="actDeact('class',<?php echo "'".$data['id']."','".$data['name']."','".$data['active']."'";?>)"
+										onclick="actDeact('class ',<?php echo "'".$data['id']."','".$data['name']."','".$data['active']."'";?>)"
 										<?php if($data['active']==1){?>checked<?php } ?>>
 									</td>
 

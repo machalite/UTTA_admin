@@ -191,8 +191,10 @@
   $msgActSucceed                      ="Activated succesfully!";
   $msgDeActFail                       ="Deactivation failed!";
   $msgDeActSucceed                    ="Deactivated succesfully!";
+  $msgWithCode                        =" with code: ";
   $msgWithId                          =" with ID: ";
   $msgWithName                        =", NAME: ";
+  $msgOn                              =" on: ";
 
   //days
   $dayMon                             ="Monday";

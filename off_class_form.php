@@ -200,15 +200,6 @@
 								</div>
 
 								<div class="form-group">
-									<label class="control-label col-md-2 col-sm-3 col-xs-12">
-										<?php echo $formDescription;?></label>
-									<div class="col-md-9 col-sm-9 col-xs-12">
-										<textarea type="text" name="description"
-										class="form-control"><?php echo $description;?></textarea>
-									</div>
-								</div>
-
-								<div class="form-group">
 										<div class="col-md-6 col-sm-9 col-xs-12 col-md-offset-2">
 												<a href="class.php">
 														<button type="button" class="btn btn-danger">

@@ -14,12 +14,13 @@
     if ($ops==1)
     {
       //get user inputs from the form
-      $student = mysqli_real_escape_string($con, $_POST['student']);
+      $studentId = mysqli_real_escape_string($con, $_POST['studentId']);
+      $studentCode = mysqli_real_escape_string($con, $_POST['studentCode']);
       $course = mysqli_real_escape_string($con, $_POST['course']);
 
       //attempt insert query execution
       $strIns = "INSERT INTO takencourse (course,student)
-        VALUES('$course','$student')";
+        VALUES('$course','$studentId')";
 
       if(!mysqli_query($con, $strIns))
       {
@@ -30,7 +31,7 @@
       {
         //concatenate activity description
   		  $strAct=$actAdded." ".$textCourse." : ".$course." ".$textOnstudent." ".
-          $student;
+          $studentCode;
   		  //record insertion in activity log
   		  $sql = "INSERT INTO activitylog (user,activity)
   		  VALUES($userId,'$strAct')";

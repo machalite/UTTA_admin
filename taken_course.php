@@ -34,7 +34,10 @@
 							class="form-horizontal form-label-left">
 
 							<!-- hidden textfield for id -->
-							<input type="hidden" name="student" value="<?php echo $studentId." ".$studentCode;?>">
+							<input type="hidden" name="studentId" value="<?php echo $studentId;?>">
+
+							<!-- hidden textfield for code -->
+							<input type="hidden" name="studentCode" value="<?php echo $studentCode;?>">
 
 							<!-- Create dynamic listbox -->
 							<div class="form-group">

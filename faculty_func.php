@@ -60,7 +60,7 @@
       else
       {
         //concatenate activity description
-        $strAct=$actUpdated." ".$textFaculty.$msgWithId.$id.$msgWithName.$name;
+        $strAct=$actUpdated." ".$textFaculty.$msgWithCode.$code.$msgWithName.$name;
         //record update in activity log
         $sql = "INSERT INTO activitylog (user,activity)
           VALUES($userId,'$strAct')";

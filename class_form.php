@@ -39,9 +39,6 @@
     $room=$data['room'];
     $year=$data['year'];
 
-		//class will use course name for activity log
-		$name=$data['name'];
-
 		$link="class_func.php?&ops=2";
 	}
 	else

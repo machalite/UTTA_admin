@@ -38,7 +38,7 @@
       {
         //get course name
         $qry="SELECT cr.name FROM class c, course cr
-        WHERE c.course=cr.id AND id=$class";
+        WHERE c.course=cr.id AND c.id=$class";
         $sql=mysqli_query($con,$qry);
         $data=mysqli_fetch_array($sql,MYSQLI_ASSOC);
         $name=$data['name'];
@@ -54,7 +54,7 @@
         }
 
         //concatenate activity description
-  		  $strAct=$action." ".$textCourse." : ".$name;
+  		  $strAct=$action." ".$textCourse." : ".$name.$msgOn.$date;
   		  //record insertion in activity log
   		  $sql = "INSERT INTO activitylog (user,activity)
   		  VALUES($userId,'$strAct')";
