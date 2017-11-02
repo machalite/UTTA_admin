@@ -72,7 +72,6 @@
                 <th><?php echo $tableCode;?></th>
 								<th><?php echo $tableCourse;?></th>
 								<th><?php echo $tableLecturer;?></th>
-								<th><?php echo $tableActive;?></th>
                 <th><?php echo $tableAction;?></th>
               </tr>
             </thead>
@@ -92,12 +91,6 @@
                   <td><?php echo $data['code'];?></td>
                   <td><?php echo $data['course'];?></td>
                   <td><?php echo $data['lecturer'];?></td>
-									<td>
-										<input type="checkbox" name="active"
-										onclick="actDeact('taken_course',<?php echo "'".$data['id']."','".$data['name']."','".$data['active']."'";?>)"
-										<?php if($data['active']==1){?>checked<?php } ?>>
-									</td>
-
 									<!-- generate action buttons -->
 									<td width="160">
 										<!-- delete button -->
