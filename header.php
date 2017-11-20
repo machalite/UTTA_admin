@@ -175,9 +175,6 @@
 
                   <!-- dropdown menu content -->
   								<ul class="dropdown-menu dropdown-usermenu pull-right">
-  									<li><a href="help.php">
-                      <i class="fa fa-question-circle pull-right"></i>
-                      <?php echo $headerHelp?></a></li>
   									<li><a href="logout.php">
                       <i class="fa fa-sign-out pull-right"></i>
                       <?php echo $headerLogout?></a></li>
