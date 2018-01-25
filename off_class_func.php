@@ -75,7 +75,7 @@
       $date = mysqli_real_escape_string($con, $_POST['date']);
       $class = mysqli_real_escape_string($con, $_POST['class']);
       $status = mysqli_real_escape_string($con, $_POST['status']);
-      $desciption = mysqli_real_escape_string($con, $_POST['description']);
+      $description = mysqli_real_escape_string($con, $_POST['description']);
       $room = mysqli_real_escape_string($con, $_POST['room']);
       $startClass = mysqli_real_escape_string($con, $_POST['startClass']);
       $endClass = mysqli_real_escape_string($con, $_POST['endClass']);
